@@ -1,37 +1,65 @@
 {
   "images": [
     {
-      "src": "images/sports/Ironam_Italia-319.jpg",
-      "title": "Ironman Italy",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
-      "aspect": "landscape"
+      "src": "images/outside/Building_Vodotehna.jpg",
+      "title": "Building Vodotehna",
+      "title_hr": "Zgrada Vodotehne",
+      "category": "outside",
+      "aspect": "portrait"
     },
     {
-      "src": "images/sports/Ironam_Italia-156.jpg",
-      "title": "Ironman Italy",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
+      "src": "images/sports/about-1.jpg",
+      "title": "About 1",
+      "title_hr": "O meni",
+      "category": "about",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/outside/Slika-15_websize.jpg",
+      "title": "The most beautiful tree",
+      "title_hr": "Najljepše drvo",
+      "category": "outside",
       "aspect": "landscape"
     },
     {
       "src": "images/sports/Ironam_Italia-243.jpg",
-      "title": "Ironman Italy",
-      "title_hr": "Ironman Italija",
+      "title": "Ironam Italia",
+      "title_hr": "Ironam Italija",
       "category": "sports",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/sports/about-2.jpg",
+      "title": "About 2",
+      "title_hr": "O meni",
+      "category": "about",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/outside/Slika-18_websize.jpg",
+      "title": "The most beautiful tree",
+      "title_hr": "Najljepše drvo",
+      "category": "outside",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/events/Festival_balona_Prelog-8.jpg",
+      "title": "Baloon Fest Prelog",
+      "title_hr": "Festival Balona Prelog",
+      "category": "events",
       "aspect": "portrait"
     },
     {
       "src": "images/sports/Ironam_Italia-353.jpg",
-      "title": "Ironman Italy",
-      "title_hr": "Ironman Italija",
+      "title": "Ironam Italia",
+      "title_hr": "Ironam Italija",
       "category": "sports",
       "aspect": "portrait"
     },
     {
-      "src": "images/sports/Ironam_Italia-285.jpg",
-      "title": "Ironman Italy",
-      "title_hr": "Ironman Italija",
+      "src": "images/sports/Ironam_Italia-156.jpg",
+      "title": "Ironam Italia",
+      "title_hr": "Ironam Italija",
       "category": "sports",
       "aspect": "landscape"
     },
@@ -43,53 +71,25 @@
       "aspect": "portrait"
     },
     {
+      "src": "images/sports/Ironam_Italia-285.jpg",
+      "title": "Ironam Italia",
+      "title_hr": "Ironam Italija",
+      "category": "sports",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/sports/Ironam_Italia-319.jpg",
+      "title": "Ironam Italia",
+      "title_hr": "Ironam Italija",
+      "category": "sports",
+      "aspect": "landscape"
+    },
+    {
       "src": "images/events/Festival_balona_Prelog-16.jpg",
       "title": "Baloon Fest Prelog",
       "title_hr": "Festival Balona Prelog",
       "category": "events",
       "aspect": "landscape"
-    },
-    {
-      "src": "images/outside/Slika-15_websize.jpg",
-      "title": "Baloon Fest Prelog",
-      "title_hr": "Najljepše drvo",
-      "category": "outside",
-      "aspect": "landscape"
-    },
-    {
-      "src": "images/outside/Slika-18_websize.jpg",
-      "title": "Slika 18 Websize",
-      "title_hr": "Najljepše drvo",
-      "category": "outside",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/events/Festival_balona_Prelog-8.jpg",
-      "title": "Festival Balona Prelog 8",
-      "title_hr": "Festival Balona Prelog",
-      "category": "events",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/outside/Building_Vodotehna.jpg",
-      "title": "Building Vodotehna",
-      "title_hr": "Zgrada \"Vodotehne\"",
-      "category": "outside",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/sports/about-1.jpg",
-      "title": "About",
-      "title_hr": "O meni",
-      "category": "about",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/sports/about-2.jpg",
-      "title": "About",
-      "title_hr": "O meni",
-      "category": "about",
-      "aspect": "portrait"
     }
   ]
 }
