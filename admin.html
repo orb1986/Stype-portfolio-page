@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Admin - Image Manager</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Status bar */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .status-bar .count {
+            font-size: 1.1rem;
+        }
+
+        .status-bar .count strong {
+            color: #4CAF50;
+        }
+
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-badge.loaded {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-badge.error {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        /* Drop Zone */
+        .drop-zone {
+            border: 3px dashed #ccc;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            background: #fff;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .drop-zone.dragover {
+            border-color: #4CAF50;
+            background: #f0fff0;
+        }
+
+        .drop-zone h2 {
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .drop-zone p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .drop-zone input[type="file"] {
+            display: none;
+        }
+
+        .browse-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 0.75rem 0.5rem 0;
+            transition: background 0.3s;
+        }
+
+        .browse-btn:hover {
+            background: #333;
+        }
+
+        .browse-btn.secondary {
+            background: #fff;
+            color: #1a1a1a;
+            border: 2px solid #1a1a1a;
+        }
+
+        .browse-btn.secondary:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 1rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: #e0e0e0;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .tab:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .tab:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tab.active {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .tab .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .tab.active .badge {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Image List */
+        .image-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .image-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 1rem;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            align-items: center;
+        }
+
+        .image-item.new {
+            border-left: 4px solid #4CAF50;
+        }
+
+        .image-item img {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+            background: #f0f0f0;
+        }
+
+        .image-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.6rem;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .field label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .field input, .field select {
+            padding: 0.4rem 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .field input:focus, .field select:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+
+        .remove-btn {
+            padding: 0.4rem 0.8rem;
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .remove-btn:hover {
+            background: #cc0000;
+        }
+
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .action-btn {
+            padding: 0.875rem 1.75rem;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .action-btn.primary {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        .action-btn.primary:hover {
+            background: #45a049;
+        }
+
+        .action-btn.secondary {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .action-btn.secondary:hover {
+            background: #1976D2;
+        }
+
+        .action-btn.danger {
+            background: #fff;
+            color: #f44336;
+            border: 2px solid #f44336;
+        }
+
+        .action-btn.danger:hover {
+            background: #f44336;
+            color: #fff;
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 2rem;
+            background: #333;
+            color: #fff;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast.success {
+            background: #4CAF50;
+        }
+
+        .toast.error {
+            background: #f44336;
+        }
+
+        /* Help text */
+        .help-text {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        .help-text strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Auto-save indicator */
+        .autosave-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #2e7d32;
+        }
+
+        .autosave-indicator.disconnected {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .autosave-indicator svg {
+            flex-shrink: 0;
+        }
+
+        .connect-btn {
+            padding: 0.4rem 0.8rem;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+
+        .connect-btn:hover {
+            background: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .image-item {
+                grid-template-columns: 1fr;
+            }
+
+            .image-item img {
+                width: 100%;
+                height: 150px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gallery Admin</h1>
+        <p class="subtitle">Manage your portfolio images</p>
+
+        <div class="status-bar">
+            <div class="count">
+                <strong id="totalCount">0</strong> images in gallery
+                <span id="newCount" style="color: #4CAF50; margin-left: 1rem;"></span>
+            </div>
+            <div class="status-badge loaded" id="statusBadge">Loading...</div>
+        </div>
+
+        <div class="autosave-indicator disconnected" id="autosaveIndicator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            <span id="autosaveText">Click "Connect File" to enable one-click saving</span>
+            <button class="connect-btn" id="connectBtn" onclick="connectFile()">Connect File</button>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+            <h2>Add New Images</h2>
+            <p>Drop images here to add them to your gallery</p>
+            <div>
+                <label class="browse-btn">
+                    Browse Files
+                    <input type="file" id="fileInput" multiple accept="image/*">
+                </label>
+                <label class="browse-btn secondary">
+                    Select Folder
+                    <input type="file" id="folderInput" webkitdirectory multiple accept="image/*">
+                </label>
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.8rem; color: #999;">
+                Images will be added to the existing gallery. Make sure files are already in the images/ folder.
+            </p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('all')">All Images <span class="badge" id="allBadge">0</span></button>
+            <button class="tab" onclick="showTab('new')">New <span class="badge" id="newBadge">0</span></button>
+        </div>
+
+        <div class="image-list" id="imageList">
+            <div class="empty-state">Loading images...</div>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn primary" onclick="saveJson()" id="saveBtn">
+                Save Changes
+            </button>
+            <button class="action-btn secondary" onclick="downloadJson()">
+                Download images.json
+            </button>
+            <button class="action-btn danger" onclick="clearNew()" id="clearNewBtn" style="margin-left: auto;">
+                Clear New Images
+            </button>
+        </div>
+
+        <div class="help-text" id="helpText" style="display: none;">
+            <strong>Changes detected!</strong>
+            Click "Save Changes" to update your images.json file directly (if connected), or "Download images.json" to get the file.
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let existingImages = [];  // Images loaded from images.json
+        let newImages = [];       // Newly added images
+        let currentTab = 'all';
+        let fileHandle = null;    // Stored file handle for one-click saves
+
+        // Load existing images on startup
+        document.addEventListener('DOMContentLoaded', () => {
+            loadExistingJson();
+            checkFileSystemSupport();
+        });
+
+        // Drop zone functionality
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const folderInput = document.getElementById('folderInput');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+        folderInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+        function checkFileSystemSupport() {
+            const indicator = document.getElementById('autosaveIndicator');
+            const connectBtn = document.getElementById('connectBtn');
+
+            if (!('showOpenFilePicker' in window)) {
+                indicator.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span>Use Chrome or Edge for one-click saving. Other browsers require downloading the file.</span>
+                `;
+                indicator.classList.add('disconnected');
+            }
+        }
+
+        async function connectFile() {
+            if (!('showOpenFilePicker' in window)) {
+                showToast('One-click saving requires Chrome or Edge browser', 'error');
+                return;
+            }
+
+            try {
+                const [handle] = await window.showOpenFilePicker({
+                    types: [{
+                        description: 'JSON File',
+                        accept: { 'application/json': ['.json'] }
+                    }],
+                    startIn: 'documents'
+                });
+
+                fileHandle = handle;
+                updateFileConnectionStatus(true);
+                showToast('Connected! Changes will save directly to ' + handle.name, 'success');
+
+                // Enable save button
+                document.getElementById('saveBtn').disabled = false;
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.error('Failed to connect file:', err);
+                    showToast('Failed to connect file', 'error');
+                }
+            }
+        }
+
+        function updateFileConnectionStatus(connected) {
+            const indicator = document.getElementById('autosaveIndicator');
+            const textEl = document.getElementById('autosaveText');
+            const connectBtn = document.getElementById('connectBtn');
+
+            if (connected && fileHandle) {
+                indicator.classList.remove('disconnected');
+                textEl.textContent = `Connected to ${fileHandle.name} - changes save directly`;
+                connectBtn.textContent = 'Change File';
+            } else {
+                indicator.classList.add('disconnected');
+                textEl.textContent = 'Click "Connect File" to enable one-click saving';
+                connectBtn.textContent = 'Connect File';
+            }
+        }
+
+        async function loadExistingJson() {
+            try {
+                const response = await fetch('images.json?t=' + Date.now());
+                const data = await response.json();
+                existingImages = data.images.map(img => ({
+                    ...img,
+                    filename: img.src.split('/').pop(),
+                    preview: img.src,
+                    isNew: false
+                }));
+
+                updateStatus('Loaded ' + existingImages.length + ' images', 'loaded');
+                updateCounts();
+                renderImageList();
+            } catch (error) {
+                console.error('Error loading images.json:', error);
+                updateStatus('Could not load images.json', 'error');
+                document.getElementById('imageList').innerHTML = `
+                    <div class="empty-state">
+                        <p>Could not load images.json</p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Make sure you're running this from a local server (e.g., VS Code Live Server)</p>
+                    </div>
+                `;
+            }
+        }
+
+        function handleFiles(files) {
+            const validFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
+
+            if (validFiles.length === 0) {
+                showToast('No valid image files found', 'error');
+                return;
+            }
+
+            let processed = 0;
+            validFiles.forEach(file => {
+                // Check if image already exists
+                const filename = file.name;
+                const existsInGallery = existingImages.some(img => img.filename === filename);
+                const existsInNew = newImages.some(img => img.filename === filename);
+
+                if (existsInGallery || existsInNew) {
+                    processed++;
+                    if (processed === validFiles.length) {
+                        finishProcessing(validFiles.length);
+                    }
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    // Guess category from path
+                    let category = 'sports';
+                    const path = file.webkitRelativePath || file.name;
+                    const categories = ['sports', 'people', 'outside', 'events'];
+                    for (const cat of categories) {
+                        if (path.toLowerCase().includes(cat)) {
+                            category = cat;
+                            break;
+                        }
+                    }
+
+                    // Detect aspect ratio
+                    const img = new Image();
+                    img.onload = () => {
+                        const ratio = img.height / img.width;
+                        let aspect = 'landscape';
+                        if (ratio > 1.2) aspect = 'portrait';
+                        else if (ratio > 0.9 && ratio < 1.1) aspect = 'square';
+                        else if (ratio < 0.6) aspect = 'wide';
+
+                        newImages.push({
+                            src: `images/${category}/${filename}`,
+                            filename: filename,
+                            preview: e.target.result,
+                            title: formatTitle(filename),
+                            title_hr: '',
+                            category: category,
+                            aspect: aspect,
+                            isNew: true
+                        });
+
+                        processed++;
+                        if (processed === validFiles.length) {
+                            finishProcessing(validFiles.length);
+                        }
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function finishProcessing(totalFiles) {
+            updateCounts();
+            renderImageList();
+            showToast(`Added ${newImages.length} new image(s)`, 'success');
+            document.getElementById('helpText').style.display = newImages.length > 0 ? 'block' : 'none';
+        }
+
+        function formatTitle(filename) {
+            return filename
+                .replace(/\.[^/.]+$/, '')
+                .replace(/[-_]/g, ' ')
+                .replace(/([A-Z])/g, ' $1')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ');
+        }
+
+        function updateStatus(message, type) {
+            const badge = document.getElementById('statusBadge');
+            badge.textContent = message;
+            badge.className = 'status-badge ' + type;
+        }
+
+        function updateCounts() {
+            const total = existingImages.length + newImages.length;
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('allBadge').textContent = total;
+            document.getElementById('newBadge').textContent = newImages.length;
+
+            const newCountEl = document.getElementById('newCount');
+            if (newImages.length > 0) {
+                newCountEl.textContent = `(+${newImages.length} new)`;
+            } else {
+                newCountEl.textContent = '';
+            }
+
+            document.getElementById('clearNewBtn').disabled = newImages.length === 0;
+            // Save button enabled if we have changes OR if file is connected (can always save)
+            const hasChanges = newImages.length > 0;
+            document.getElementById('saveBtn').disabled = !hasChanges && !fileHandle;
+        }
+
+        function showTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.add('active');
+            renderImageList();
+        }
+
+        function getAllImages() {
+            return [...existingImages, ...newImages];
+        }
+
+        function renderImageList() {
+            const list = document.getElementById('imageList');
+            let images = currentTab === 'new' ? newImages : getAllImages();
+
+            if (images.length === 0) {
+                list.innerHTML = `<div class="empty-state">
+                    ${currentTab === 'new' ? 'No new images. Drop some images above to add them!' : 'No images in gallery.'}
+                </div>`;
+                return;
+            }
+
+            list.innerHTML = images.map((img, index) => {
+                const actualIndex = currentTab === 'new' ? index :
+                    (img.isNew ? existingImages.length + newImages.indexOf(img) : existingImages.indexOf(img));
+                const isNew = img.isNew;
+
+                return `
+                <div class="image-item ${isNew ? 'new' : ''}">
+                    <img src="${img.preview}" alt="${img.filename}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%2270%22><rect fill=%22%23f0f0f0%22 width=%22100%22 height=%2270%22/><text x=%2250%22 y=%2240%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2210%22>${img.filename.substring(0,12)}...</text></svg>'">
+                    <div class="image-fields">
+                        <div class="field">
+                            <label>Title (EN)</label>
+                            <input type="text" value="${img.title}" onchange="updateImage(${isNew}, ${isNew ? newImages.indexOf(img) : existingImages.indexOf(img)}, 'title', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>Title (HR)</label>
+                            <input type="text" value="${img.title_hr || ''}" onchange="updateImage(${isNew}, ${isNew ? newImages.indexOf(img) : existingImages.indexOf(img)}, 'title_hr', this.value)" placeholder="Croatian title">
+                        </div>
+                        <div class="field">
+                            <label>Category</label>
+                            <select onchange="updateImage(${isNew}, ${isNew ? newImages.indexOf(img) : existingImages.indexOf(img)}, 'category', this.value); updateImagePath(${isNew}, ${isNew ? newImages.indexOf(img) : existingImages.indexOf(img)}, this.value)">
+                                <option value="sports" ${img.category === 'sports' ? 'selected' : ''}>Sports</option>
+                                <option value="people" ${img.category === 'people' ? 'selected' : ''}>People</option>
+                                <option value="outside" ${img.category === 'outside' ? 'selected' : ''}>Outside</option>
+                                <option value="events" ${img.category === 'events' ? 'selected' : ''}>Events</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Aspect</label>
+                            <select onchange="updateImage(${isNew}, ${isNew ? newImages.indexOf(img) : existingImages.indexOf(img)}, 'aspect', this.value)">
+                                <option value="portrait" ${img.aspect === 'portrait' ? 'selected' : ''}>Portrait</option>
+                                <option value="landscape" ${img.aspect === 'landscape' ? 'selected' : ''}>Landscape</option>
+                                <option value="square" ${img.aspect === 'square' ? 'selected' : ''}>Square</option>
+                                <option value="wide" ${img.aspect === 'wide' ? 'selected' : ''}>Wide</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="remove-btn" onclick="removeImage(${isNew}, ${isNew ? newImages.indexOf(img) : existingImages.indexOf(img)})">Remove</button>
+                </div>
+            `}).join('');
+        }
+
+        function updateImage(isNew, index, field, value) {
+            if (isNew) {
+                newImages[index][field] = value;
+            } else {
+                existingImages[index][field] = value;
+            }
+            document.getElementById('helpText').style.display = 'block';
+        }
+
+        function updateImagePath(isNew, index, category) {
+            const images = isNew ? newImages : existingImages;
+            const img = images[index];
+            img.src = `images/${category}/${img.filename}`;
+        }
+
+        function removeImage(isNew, index) {
+            if (isNew) {
+                newImages.splice(index, 1);
+            } else {
+                if (confirm('Remove this image from the gallery?')) {
+                    existingImages.splice(index, 1);
+                    document.getElementById('helpText').style.display = 'block';
+                } else {
+                    return;
+                }
+            }
+            updateCounts();
+            renderImageList();
+        }
+
+        function clearNew() {
+            if (confirm('Clear all newly added images?')) {
+                newImages = [];
+                updateCounts();
+                renderImageList();
+                document.getElementById('helpText').style.display = 'none';
+                showToast('Cleared new images');
+            }
+        }
+
+        function generateJsonData() {
+            const allImages = getAllImages();
+            return {
+                images: allImages.map(img => ({
+                    src: img.src,
+                    title: img.title,
+                    title_hr: img.title_hr || img.title,
+                    category: img.category,
+                    aspect: img.aspect
+                }))
+            };
+        }
+
+        async function saveJson() {
+            const jsonData = generateJsonData();
+            const jsonString = JSON.stringify(jsonData, null, 2);
+
+            // If we have a connected file handle, save directly (one-click)
+            if (fileHandle) {
+                try {
+                    const writable = await fileHandle.createWritable();
+                    await writable.write(jsonString);
+                    await writable.close();
+
+                    // Merge new images into existing
+                    existingImages = getAllImages().map(img => ({ ...img, isNew: false }));
+                    newImages = [];
+                    updateCounts();
+                    renderImageList();
+                    document.getElementById('helpText').style.display = 'none';
+                    showToast('Saved to ' + fileHandle.name + '!', 'success');
+                    return;
+                } catch (err) {
+                    console.error('Save failed:', err);
+                    showToast('Save failed. Try reconnecting the file.', 'error');
+                    fileHandle = null;
+                    updateFileConnectionStatus(false);
+                    return;
+                }
+            }
+
+            // Try to save using File System Access API (Chrome/Edge) - with file picker
+            if ('showSaveFilePicker' in window) {
+                try {
+                    const handle = await window.showSaveFilePicker({
+                        suggestedName: 'images.json',
+                        types: [{
+                            description: 'JSON File',
+                            accept: { 'application/json': ['.json'] }
+                        }]
+                    });
+
+                    // Store handle for future one-click saves
+                    fileHandle = handle;
+                    updateFileConnectionStatus(true);
+
+                    const writable = await handle.createWritable();
+                    await writable.write(jsonString);
+                    await writable.close();
+
+                    // Merge new images into existing
+                    existingImages = getAllImages().map(img => ({ ...img, isNew: false }));
+                    newImages = [];
+                    updateCounts();
+                    renderImageList();
+                    document.getElementById('helpText').style.display = 'none';
+                    showToast('Saved! Future saves will be one-click.', 'success');
+                    return;
+                } catch (err) {
+                    if (err.name !== 'AbortError') {
+                        console.error('Save failed:', err);
+                    }
+                }
+            }
+
+            // Fallback: download the file
+            downloadJson();
+        }
+
+        function downloadJson() {
+            const jsonData = generateJsonData();
+            const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'images.json';
+            a.click();
+            URL.revokeObjectURL(url);
+
+            // Merge new images into existing after download
+            existingImages = getAllImages().map(img => ({ ...img, isNew: false }));
+            newImages = [];
+            updateCounts();
+            renderImageList();
+            document.getElementById('helpText').style.display = 'none';
+            showToast('Downloaded! Replace your images.json with this file.', 'success');
+        }
+
+        function showToast(message, type = '') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show ' + type;
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+</html>
