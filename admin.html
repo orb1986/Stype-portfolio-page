@@ -418,9 +418,116 @@
                 text-align: center;
             }
         }
+
+        /* Login Modal */
+        .login-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .login-modal.hidden {
+            display: none;
+        }
+
+        .login-box {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .login-box h2 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .login-box p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .login-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-field label {
+            font-size: 0.85rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .login-field input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .login-field input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #333;
+        }
+
+        .login-error {
+            color: #f44336;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .login-error.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <h2>Admin Access</h2>
+            <p>Enter password to access the gallery admin panel</p>
+            <div class="login-error" id="loginError">Invalid password. Please try again.</div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="login-field">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" name="password" placeholder="Enter admin password" required autofocus>
+                </div>
+                <button type="submit" class="login-btn">Access Admin Panel</button>
+            </form>
+        </div>
+    </div>
+
     <div class="container">
         <h1>Gallery Admin</h1>
         <p class="subtitle">Manage your portfolio images</p>
@@ -491,13 +598,52 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        // =============================================
+        // PASSWORD CONFIGURATION
+        // =============================================
+        // Change this to your desired admin password
+        const ADMIN_PASSWORD = 'admin';  // Change to a strong password!
+
         let existingImages = [];  // Images loaded from images.json
         let newImages = [];       // Newly added images
         let currentTab = 'all';
         let fileHandle = null;    // Stored file handle for one-click saves
 
+        // =============================================
+        // Authentication Functions
+        // =============================================
+        function handleLogin(event) {
+            event.preventDefault();
+            const passwordInput = document.getElementById('adminPassword');
+            const password = passwordInput.value;
+
+            if (password === ADMIN_PASSWORD) {
+                // Store authentication in session storage (cleared when tab is closed)
+                sessionStorage.setItem('adminAuthenticated', 'true');
+                document.getElementById('loginModal').classList.add('hidden');
+                passwordInput.value = '';
+                document.getElementById('loginError').classList.remove('show');
+            } else {
+                document.getElementById('loginError').classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        function checkAuthentication() {
+            const isAuthenticated = sessionStorage.getItem('adminAuthenticated') === 'true';
+            const loginModal = document.getElementById('loginModal');
+
+            if (!isAuthenticated) {
+                loginModal.classList.remove('hidden');
+            } else {
+                loginModal.classList.add('hidden');
+            }
+        }
+
         // Load existing images on startup
         document.addEventListener('DOMContentLoaded', () => {
+            checkAuthentication();
             loadExistingJson();
             checkFileSystemSupport();
         });
@@ -641,7 +787,7 @@
                     // Guess category from path
                     let category = 'sports';
                     const path = file.webkitRelativePath || file.name;
-                    const categories = ['sports', 'people', 'outside', 'events'];
+                    const categories = ['sports', 'people', 'outside', 'events', 'about'];
                     for (const cat of categories) {
                         if (path.toLowerCase().includes(cat)) {
                             category = cat;
@@ -770,6 +916,7 @@
                                 <option value="people" ${img.category === 'people' ? 'selected' : ''}>People</option>
                                 <option value="outside" ${img.category === 'outside' ? 'selected' : ''}>Outside</option>
                                 <option value="events" ${img.category === 'events' ? 'selected' : ''}>Events</option>
+                                <option value="about" ${img.category === 'about' ? 'selected' : ''}>About</option>
                             </select>
                         </div>
                         <div class="field">

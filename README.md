@@ -6,11 +6,13 @@ A modern, minimalist portfolio website with a clean white design inspired by pro
 
 - **Clean White Design** - Minimalist aesthetic with focus on imagery
 - **Masonry Grid Layout** - Pinterest-style gallery with varied image heights
+- **Lazy Loading** - Images load on demand for better performance
 - **Easy Image Management** - Just edit `images.json` to add/remove photos
 - **Fully Responsive** - Optimized for desktop, tablet, and mobile devices
 - **Language Toggle** - Switch between English and Croatian (HR/EN)
 - **Back to Top Button** - Smooth scroll back to top when scrolling down
-- **Category Navigation** - Filter work by category (Sports, People, Outside, Events)
+- **Category Navigation** - Filter work by category (Sports, People, Outside, Events, About)
+- **About Section Slideshow** - Auto-rotating image gallery in contact section
 - **Lightbox Gallery** - Click on portfolio items to view details
 - **SEO Optimized** - Complete meta tags, Open Graph, and Twitter cards
 
@@ -30,7 +32,8 @@ Stype-portfolio-page/
 │   ├── sports/
 │   ├── people/
 │   ├── outside/
-│   └── events/
+│   ├── events/
+│   └── about/          # About/personal photos for slideshow
 ├── assets/
 │   └── favicon.svg     # Site favicon
 └── README.md
@@ -42,10 +45,11 @@ Stype-portfolio-page/
 
 1. Copy your images to the appropriate `images/` subfolder
 2. Open `admin.html` in your browser (via local server, e.g., VS Code Live Server)
-3. **One-time setup (Chrome/Edge):** Click "Connect File" and select your `images.json` file
-4. Drag & drop the same images into the admin page
-5. Fill in titles (auto-generated from filename) and adjust categories
-6. Click "Save Changes" - it saves directly to your file!
+3. **Enter the admin password** (default: `admin`) - IMPORTANT: Change this in admin.html script!
+4. **One-time setup (Chrome/Edge):** Click "Connect File" and select your `images.json` file
+5. Drag & drop the same images into the admin page
+6. Fill in titles (auto-generated from filename) and adjust categories
+7. Click "Save Changes" - it saves directly to your file!
 
 The admin tool:
 - Auto-loads existing images.json on startup
@@ -85,8 +89,11 @@ Open `images.json` and add/edit entries. Each image needs:
 | `src` | Path to the image file | Any valid path |
 | `title` | Title shown in English | Any text |
 | `title_hr` | Title shown in Croatian | Any text |
-| `category` | Which filter it appears under | `sports`, `people`, `outside`, `events` |
+| `category` | Which filter it appears under | `sports`, `people`, `outside`, `events`, `about` |
 | `aspect` | Image aspect ratio | `portrait`, `landscape`, `square`, `wide` |
+
+**Special Categories:**
+- `about` - Images are hidden from the main gallery and only appear in the About slideshow in the contact section
 
 **Aspect ratio options:**
 - `portrait` - Tall images (140% height, good for vertical shots)
@@ -139,7 +146,35 @@ filter_newcategory: "Nova Kategorija",  // Croatian
 
 1. **Logo**: Edit the logo text in `.logo-box` in `index.html`
 2. **Contact Info**: Update email and location in the contact section
-3. **Social Links**: Update the `href` attributes for Instagram, LinkedIn, etc.
+3. **Social Links**: Update the `href` attributes for Instagram, LinkedIn, Facebook, and Pic-Time Portfolio
+
+### Customizing the About Slideshow
+
+The contact section features a side-by-side layout with an auto-rotating slideshow on the left and contact information on the right. To customize:
+
+1. **Add/Remove Slides**: Edit the slides in `index.html` contact section
+2. **Auto-rotation Speed**: Change the interval in `js/main.js` in the `initSlideshow()` function (default: 4 seconds)
+3. **Image Sizing**: Adjust slideshow height in CSS (`.slide img` - currently 400px on desktop, 280px on mobile)
+
+### Securing the Admin Panel
+
+The admin panel (`admin.html`) is password-protected. To change the password:
+
+1. Open `admin.html` in a text editor
+2. Find this line (around line 607 in the `<script>` section):
+   ```javascript
+   const ADMIN_PASSWORD = 'admin';  // Change to a strong password!
+   ```
+3. Replace `'admin'` with your desired password:
+   ```javascript
+   const ADMIN_PASSWORD = 'your-secure-password-123';
+   ```
+
+**Security Notes:**
+- The password is stored on the client side, so it's visible in the page source (not truly secure)
+- For a more secure solution, consider using a backend service or authentication API
+- The authentication session clears when you close the browser tab
+- Change the default password immediately for safety
 
 ### Color Variables
 

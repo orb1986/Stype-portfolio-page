@@ -369,11 +369,23 @@ button {
 /* =============================================
    About Slideshow (Contact Section)
    ============================================= */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-slideshow-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .about-slideshow {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    padding: 0 2rem;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .slideshow-container {
@@ -772,6 +784,11 @@ button {
         display: none;
     }
 
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 4rem;
@@ -844,8 +861,12 @@ button {
     }
 
     .about-slideshow {
-        padding: 0 1rem;
-        margin-bottom: 2rem;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .contact-wrapper {
+        gap: 2rem;
     }
 
     .footer-content {
