@@ -203,6 +203,9 @@ function renderGallery(images, filter = 'all') {
         filteredImages = filteredImages.filter(img => img.category === filter);
     }
 
+    // Update mobile gallery slideshow
+    updateMobileGallerySlideshow(filteredImages);
+
     // Distribute images into 4 columns for masonry effect
     const columns = [[], [], [], []];
     filteredImages.forEach((img, index) => {
@@ -242,6 +245,86 @@ function getAspectRatio(aspect) {
         'wide': '56%'
     };
     return ratios[aspect] || '75%';
+}
+
+function updateMobileGallerySlideshow(images) {
+    const slideshow = document.getElementById('gallerySlideshow');
+    const dotsContainer = document.getElementById('gallerySlideshowDots');
+
+    if (!slideshow || !dotsContainer) return;
+
+    // Clear existing slides and dots
+    slideshow.innerHTML = '';
+    dotsContainer.innerHTML = '';
+
+    // Create slides
+    images.forEach(img => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        const title = currentLang === 'hr' && img.title_hr ? img.title_hr : img.title;
+        slide.innerHTML = `<img src="${img.src}" alt="${title}" loading="lazy">`;
+        slideshow.appendChild(slide);
+    });
+
+    // Initialize slideshow if we have slides
+    if (images.length > 0) {
+        initMobileGallerySlideshow();
+    }
+}
+
+function initMobileGallerySlideshow() {
+    const track = document.getElementById('gallerySlideshow');
+    const dotsContainer = document.getElementById('gallerySlideshowDots');
+
+    if (!track || !dotsContainer) return;
+
+    const slides = track.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    let autoplayInterval;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'slideshow-dot' + (index === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.slideshow-dot');
+
+    function goToSlide(index) {
+        currentSlide = index;
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        goToSlide(next);
+    }
+
+    // Auto-play every 4 seconds
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 4000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+
+    // Start autoplay
+    startAutoplay();
 }
 
 // =============================================

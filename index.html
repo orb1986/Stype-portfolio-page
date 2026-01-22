@@ -80,6 +80,17 @@
 
     <!-- Main Gallery - Images loaded dynamically from images.json -->
     <main class="gallery-main">
+        <!-- Mobile Slideshow - visible only on mobile -->
+        <div class="mobile-gallery-slideshow" id="mobileGallerySlideshow">
+            <div class="slideshow-container">
+                <div class="slideshow-track" id="gallerySlideshow">
+                    <!-- Slides populated by JavaScript -->
+                </div>
+            </div>
+            <div class="slideshow-dots" id="gallerySlideshowDots"></div>
+        </div>
+
+        <!-- Desktop Grid - visible only on desktop -->
         <div class="masonry-grid" id="galleryGrid">
             <!-- Gallery items will be loaded dynamically from images.json -->
             <p class="loading-message">Loading gallery...</p>
