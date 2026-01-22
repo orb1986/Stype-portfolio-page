@@ -200,6 +200,10 @@ button {
     height: 24px;
     position: relative;
     z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .hamburger,
@@ -798,6 +802,8 @@ button {
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
+        order: 2;
+        margin: 0 1rem;
     }
 
     .nav-main {
@@ -807,6 +813,7 @@ button {
         right: 0;
         bottom: 0;
         background-color: var(--color-bg);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -824,6 +831,7 @@ button {
     .nav-menu {
         flex-direction: column;
         gap: 1.5rem;
+        text-align: center;
     }
 
     .nav-link {
@@ -832,6 +840,12 @@ button {
 
     .header-right {
         z-index: 1001;
+        order: 3;
+    }
+
+    .header-container {
+        display: flex;
+        align-items: center;
     }
 
     .gallery-main {
@@ -840,12 +854,6 @@ button {
 
     .masonry-column {
         flex: 0 0 100%;
-    }
-
-    .masonry-column:nth-child(2),
-    .masonry-column:nth-child(3),
-    .masonry-column:nth-child(4) {
-        display: none;
     }
 
     .gallery-item {
