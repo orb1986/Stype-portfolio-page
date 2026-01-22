@@ -275,6 +275,8 @@ function updateMobileGallerySlideshow(images) {
 function initMobileGallerySlideshow() {
     const track = document.getElementById('gallerySlideshow');
     const dotsContainer = document.getElementById('gallerySlideshowDots');
+    const prevBtn = document.getElementById('gallerySlideshowPrev');
+    const nextBtn = document.getElementById('gallerySlideshowNext');
 
     if (!track || !dotsContainer) return;
 
@@ -310,6 +312,11 @@ function initMobileGallerySlideshow() {
         goToSlide(next);
     }
 
+    function prevSlide() {
+        const prev = (currentSlide - 1 + slides.length) % slides.length;
+        goToSlide(prev);
+    }
+
     // Auto-play every 4 seconds
     function startAutoplay() {
         autoplayInterval = setInterval(nextSlide, 4000);
@@ -322,6 +329,23 @@ function initMobileGallerySlideshow() {
     // Pause on hover
     track.addEventListener('mouseenter', stopAutoplay);
     track.addEventListener('mouseleave', startAutoplay);
+
+    // Add button event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        });
+    }
 
     // Start autoplay
     startAutoplay();

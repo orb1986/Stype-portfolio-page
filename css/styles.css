@@ -272,6 +272,8 @@ button {
     width: 100%;
     overflow: hidden;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .mobile-gallery-slideshow .slideshow-track {
@@ -315,6 +317,43 @@ button {
 .mobile-gallery-slideshow .slideshow-dot.active {
     background-color: var(--color-text);
     transform: scale(1.2);
+}
+
+/* Navigation buttons for slideshow */
+.slideshow-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color var(--transition-fast);
+    padding: 0;
+}
+
+.slideshow-nav:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.slideshow-nav svg {
+    width: 20px;
+    height: 20px;
+}
+
+.slideshow-nav-prev {
+    left: 10px;
+}
+
+.slideshow-nav-next {
+    right: 10px;
 }
 
 .masonry-grid {
