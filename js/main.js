@@ -172,13 +172,25 @@ function initBackToTop() {
 }
 
 // =============================================
+// Shuffle array (Fisher-Yates algorithm)
+// =============================================
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+// =============================================
 // Load and render gallery from images.json
 // =============================================
 async function loadGallery() {
     try {
         const response = await fetch('images.json');
         const data = await response.json();
-        allImages = data.images;
+        allImages = shuffleArray(data.images);
         renderGallery(allImages);
         initGalleryFilter();
         initLightbox();

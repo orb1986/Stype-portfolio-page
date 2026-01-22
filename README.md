@@ -13,7 +13,8 @@ A modern, minimalist portfolio website with a clean white design inspired by pro
 - **Back to Top Button** - Smooth scroll back to top when scrolling down
 - **Category Navigation** - Filter work by category (Sports, People, Outside, Events, About)
 - **About Section Slideshow** - Auto-rotating image gallery in contact section
-- **Lightbox Gallery** - Click on portfolio items to view details
+- **Lightbox Gallery** - Click on portfolio items to view details with left/right navigation
+- **Randomized Gallery** - Images are shuffled on each page load for dynamic viewing experience
 - **SEO Optimized** - Complete meta tags, Open Graph, and Twitter cards
 
 ## Project Structure
@@ -155,6 +156,33 @@ The contact section features a side-by-side layout with an auto-rotating slidesh
 1. **Add/Remove Slides**: Edit the slides in `index.html` contact section
 2. **Auto-rotation Speed**: Change the interval in `js/main.js` in the `initSlideshow()` function (default: 4 seconds)
 3. **Image Sizing**: Adjust slideshow height in CSS (`.slide img` - currently 400px on desktop, 280px on mobile)
+
+### Lightbox Navigation
+
+The lightbox gallery includes navigation features for browsing images:
+
+- **Left/Right Arrow Buttons** - Click arrows on the sides to navigate through images
+- **Keyboard Navigation** - Use arrow keys (← →) to browse images
+- **Close** - Press Escape or click the X button to close
+
+Images are navigable in the order they appear in the current filtered view.
+
+### Disabling Gallery Randomization
+
+By default, gallery images are randomized on each page load for a dynamic viewing experience. To disable this:
+
+1. Open `js/main.js`
+2. In the `loadGallery()` function (around line 189), change:
+   ```javascript
+   allImages = shuffleArray(data.images);
+   ```
+   to:
+   ```javascript
+   allImages = data.images;
+   ```
+3. Save the file - the gallery will now display images in their original order
+
+**Note:** Gallery filtering and category navigation will maintain consistent orderings within each filtered view.
 
 ### Securing the Admin Panel
 
