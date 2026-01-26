@@ -194,6 +194,9 @@ async function loadGallery() {
         renderGallery(allImages);
         initGalleryFilter();
         initLightbox();
+
+        // Preload all images in background for smooth category switching
+        preloadAllImages(data.images);
     } catch (error) {
         console.error('Error loading images:', error);
         // Show placeholder message if images.json fails to load
@@ -202,6 +205,43 @@ async function loadGallery() {
             grid.innerHTML = '<p style="padding: 2rem; text-align: center; color: #888;">Add images to images.json to display your gallery.</p>';
         }
     }
+}
+
+// =============================================
+// Preload all images for smooth category switching
+// =============================================
+function preloadAllImages(images) {
+    // Wait a bit before starting preload to not interfere with initial render
+    setTimeout(() => {
+        console.log('Starting background image preload...');
+
+        // Filter out 'about' category as it's not shown in gallery
+        const galleryImages = images.filter(img => img.category !== 'about');
+
+        // Preload in batches to avoid overwhelming the browser
+        const batchSize = 10;
+        let currentIndex = 0;
+
+        function preloadBatch() {
+            const batch = galleryImages.slice(currentIndex, currentIndex + batchSize);
+
+            batch.forEach(imageData => {
+                const img = new Image();
+                img.src = imageData.src;
+            });
+
+            currentIndex += batchSize;
+
+            // Schedule next batch
+            if (currentIndex < galleryImages.length) {
+                setTimeout(preloadBatch, 200); // 200ms delay between batches
+            } else {
+                console.log(`Preloaded ${galleryImages.length} images for smooth navigation`);
+            }
+        }
+
+        preloadBatch();
+    }, 2000); // Start preloading 2 seconds after initial load
 }
 
 function renderGallery(images, filter = 'all') {
@@ -380,6 +420,12 @@ function initGalleryFilter() {
             const filter = link.getAttribute('data-filter');
             renderGallery(allImages, filter);
 
+            // Scroll to top of gallery when switching sections
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
             // Re-init lightbox for new items
             initLightbox();
 
@@ -396,6 +442,7 @@ function initLightbox() {
     if (!lightbox) return;
 
     const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxFullscreen = document.getElementById('lightboxFullscreen');
     const lightboxPrev = lightbox.querySelector('.lightbox-nav-prev');
     const lightboxNext = lightbox.querySelector('.lightbox-nav-next');
     const lightboxTitle = lightbox.querySelector('.lightbox-title');
@@ -405,6 +452,7 @@ function initLightbox() {
 
     let currentItemIndex = 0;
     let galleryItemsArray = Array.from(galleryItems);
+    let isFullscreen = false;
 
     function displayItem(index) {
         if (galleryItemsArray.length === 0) return;
@@ -419,9 +467,20 @@ function initLightbox() {
         lightboxTitle.textContent = title;
         lightboxCategory.textContent = category.charAt(0).toUpperCase() + category.slice(1);
 
-        // Show image in lightbox
+        // Show image in lightbox with wrapper for proper info positioning
         if (src) {
-            lightboxImage.innerHTML = `<img src="${src}" alt="${title}" style="max-width: 100%; max-height: 100%; object-fit: contain;">`;
+            lightboxImage.innerHTML = `
+                <div class="lightbox-image-wrapper">
+                    <img src="${src}" alt="${title}">
+                </div>
+            `;
+
+            // Move the lightbox-info inside the wrapper so it aligns with image width
+            const wrapper = lightboxImage.querySelector('.lightbox-image-wrapper');
+            const info = document.querySelector('.lightbox-info');
+            if (wrapper && info) {
+                wrapper.appendChild(info);
+            }
         }
     }
 
@@ -458,6 +517,11 @@ function initLightbox() {
 
     newClose.addEventListener('click', closeLightbox);
 
+    // Fullscreen toggle
+    if (lightboxFullscreen) {
+        lightboxFullscreen.addEventListener('click', toggleFullscreen);
+    }
+
     lightbox.onclick = (e) => {
         if (e.target === lightbox) {
             closeLightbox();
@@ -471,10 +535,78 @@ function initLightbox() {
             displayItem(currentItemIndex - 1);
         } else if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
             displayItem(currentItemIndex + 1);
+        } else if ((e.key === 'f' || e.key === 'F') && lightbox.classList.contains('active')) {
+            toggleFullscreen();
         }
     };
 
+    // Listen for fullscreen changes
+    document.addEventListener('fullscreenchange', updateFullscreenButton);
+    document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+    document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+    document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+
+    function toggleFullscreen() {
+        if (!document.fullscreenElement &&
+            !document.webkitFullscreenElement &&
+            !document.mozFullScreenElement &&
+            !document.msFullscreenElement) {
+            // Enter fullscreen
+            if (lightbox.requestFullscreen) {
+                lightbox.requestFullscreen();
+            } else if (lightbox.webkitRequestFullscreen) {
+                lightbox.webkitRequestFullscreen();
+            } else if (lightbox.mozRequestFullScreen) {
+                lightbox.mozRequestFullScreen();
+            } else if (lightbox.msRequestFullscreen) {
+                lightbox.msRequestFullscreen();
+            }
+        } else {
+            // Exit fullscreen
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    }
+
+    function updateFullscreenButton() {
+        const expandIcon = lightboxFullscreen.querySelector('.fullscreen-icon-expand');
+        const collapseIcon = lightboxFullscreen.querySelector('.fullscreen-icon-collapse');
+
+        isFullscreen = !!(document.fullscreenElement ||
+                         document.webkitFullscreenElement ||
+                         document.mozFullScreenElement ||
+                         document.msFullscreenElement);
+
+        if (isFullscreen) {
+            expandIcon.style.display = 'none';
+            collapseIcon.style.display = 'block';
+        } else {
+            expandIcon.style.display = 'block';
+            collapseIcon.style.display = 'none';
+        }
+    }
+
     function closeLightbox() {
+        // Exit fullscreen if active
+        if (isFullscreen) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     }

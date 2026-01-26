@@ -6,10 +6,14 @@ const translations = {
 
         // Navigation / Filters
         filter_all: "All",
-        filter_sports: "Sports",
-        filter_people: "People",
-        filter_outside: "Outside",
+        filter_action: "Action",
+        filter_baptism: "Baptism",
         filter_events: "Events",
+        filter_food: "Food",
+        filter_motion: "Motion",
+        filter_nature: "Nature",
+        filter_outdoor: "Outdoor",
+        filter_people: "People",
         nav_contact: "Contact",
 
         // Projects
@@ -48,10 +52,14 @@ const translations = {
 
         // Navigation / Filters
         filter_all: "Sve",
-        filter_sports: "Sport",
-        filter_people: "Ljudi",
-        filter_outside: "Priroda",
+        filter_action: "Akcija",
+        filter_baptism: "Krštenje",
         filter_events: "Događaji",
+        filter_food: "Hrana",
+        filter_motion: "Pokret",
+        filter_nature: "Priroda",
+        filter_outdoor: "Vanjski",
+        filter_people: "Ljudi",
         nav_contact: "Kontakt",
 
         // Projects

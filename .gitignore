@@ -1,0 +1,24 @@
+# Image backups (created by compression scripts)
+images/**/.backup/
+**/.backup/
+
+# Node modules and dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+
+# Environment files (if you add any)
+.env
+.env.local

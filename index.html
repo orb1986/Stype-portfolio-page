@@ -8,6 +8,9 @@
     <meta name="author" content="Igor Damjanovic">
     <meta name="robots" content="index, follow">
 
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images.json" as="fetch" crossorigin="anonymous">
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourwebsite.com/">
@@ -38,12 +41,7 @@
     <header class="header" id="header">
         <div class="header-container">
             <a href="#" class="logo">
-                <div class="logo-box">
-                    <span class="logo-line">PIXEL</span>
-                    <span class="logo-line">FACTORY</span>
-                    <span class="logo-line">PHOTO</span>
-                    <span class="logo-line">GRAPHY</span>
-                </div>
+                <img src="images/PF_Visual_Creations.png" alt="PF Visual Creations" class="logo-image">
             </a>
 
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -53,10 +51,14 @@
             <nav class="nav-main">
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#" class="nav-link active" data-filter="all" data-i18n="filter_all">All</a></li>
-                    <li><a href="#" class="nav-link" data-filter="sports" data-i18n="filter_sports">Sports</a></li>
-                    <li><a href="#" class="nav-link" data-filter="people" data-i18n="filter_people">People</a></li>
-                    <li><a href="#" class="nav-link" data-filter="outside" data-i18n="filter_outside">Outside</a></li>
+                    <li><a href="#" class="nav-link" data-filter="action" data-i18n="filter_action">Action</a></li>
+                    <li><a href="#" class="nav-link" data-filter="baptism" data-i18n="filter_baptism">Baptism</a></li>
                     <li><a href="#" class="nav-link" data-filter="events" data-i18n="filter_events">Events</a></li>
+                    <li><a href="#" class="nav-link" data-filter="food" data-i18n="filter_food">Food</a></li>
+                    <li><a href="#" class="nav-link" data-filter="motion" data-i18n="filter_motion">Motion</a></li>
+                    <li><a href="#" class="nav-link" data-filter="nature" data-i18n="filter_nature">Nature</a></li>
+                    <li><a href="#" class="nav-link" data-filter="outdoor" data-i18n="filter_outdoor">Outdoor</a></li>
+                    <li><a href="#" class="nav-link" data-filter="people" data-i18n="filter_people">People</a></li>
                     <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
                 </ul>
             </nav>
@@ -234,6 +236,14 @@
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-fullscreen" id="lightboxFullscreen" aria-label="Toggle fullscreen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fullscreen-icon-expand">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fullscreen-icon-collapse" style="display: none;">
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+            </svg>
+        </button>
         <button class="lightbox-nav lightbox-nav-prev" id="lightboxPrev" aria-label="Previous image">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
@@ -245,10 +255,11 @@
             </svg>
         </button>
         <div class="lightbox-content">
-            <div class="lightbox-image"></div>
-            <div class="lightbox-info">
-                <h3 class="lightbox-title"></h3>
-                <p class="lightbox-category"></p>
+            <div class="lightbox-image">
+                <div class="lightbox-info">
+                    <h3 class="lightbox-title"></h3>
+                    <p class="lightbox-category"></p>
+                </div>
             </div>
         </div>
     </div>

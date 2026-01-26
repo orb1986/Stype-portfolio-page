@@ -1,95 +1,2762 @@
 {
   "images": [
     {
-      "src": "images/outside/Building_Vodotehna.jpg",
-      "title": "Building Vodotehna",
-      "title_hr": "Zgrada Vodotehne",
-      "category": "outside",
-      "aspect": "portrait"
-    },
-    {
       "src": "images/about/about-1.jpg",
       "title": "About 1",
-      "title_hr": "O meni",
+      "title_hr": "About 1",
       "category": "about",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/outside/Slika-15_websize.jpg",
-      "title": "The most beautiful tree",
-      "title_hr": "Najljepše drvo",
-      "category": "outside",
       "aspect": "landscape"
-    },
-    {
-      "src": "images/sports/Ironam_Italia-243.jpg",
-      "title": "Ironman Italia",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
-      "aspect": "portrait"
     },
     {
       "src": "images/about/about-2.jpg",
       "title": "About 2",
-      "title_hr": "O meni",
+      "title_hr": "About 2",
       "category": "about",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/3x3_Borik-27.jpg",
+      "title": "3x3 Borik 27",
+      "title_hr": "3x3 Borik 27",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/BiloGravel_2023-29.JPG",
+      "title": "Bilo Gravel 2023 29",
+      "title_hr": "Bilo Gravel 2023 29",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/BiloGravel_JuznaBilogora-136.jpg",
+      "title": "Bilo Gravel Juzna Bilogora 136",
+      "title_hr": "Bilo Gravel Juzna Bilogora 136",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Bjelovar_Metalac_221125-36.jpg",
+      "title": "Bjelovar Metalac 221125 36",
+      "title_hr": "Bjelovar Metalac 221125 36",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Bjelovar_Metalac_221125-51.jpg",
+      "title": "Bjelovar Metalac 221125 51",
+      "title_hr": "Bjelovar Metalac 221125 51",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/DanPetakPark-17.jpg",
+      "title": "Dan Petak Park 17",
+      "title_hr": "Dan Petak Park 17",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/DanPetakPark-19.jpg",
+      "title": "Dan Petak Park 19",
+      "title_hr": "Dan Petak Park 19",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/DanPetakPark-34.jpg",
+      "title": "Dan Petak Park 34",
+      "title_hr": "Dan Petak Park 34",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Dinamo_Predavac - Dinamo_Zagreb-68.jpg",
+      "title": "Dinamo Predavac Dinamo Zagreb 68",
+      "title_hr": "Dinamo Predavac Dinamo Zagreb 68",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Dinamo_Predavac - Dinamo_Zagreb-97.jpg",
+      "title": "Dinamo Predavac Dinamo Zagreb 97",
+      "title_hr": "Dinamo Predavac Dinamo Zagreb 97",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Fun_Run_2023-92.JPG",
+      "title": "Fun Run 2023 92",
+      "title_hr": "Fun Run 2023 92",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Italia_2025 (122).jpg",
+      "title": "Ironman Italia 2025 122",
+      "title_hr": "Ironman Italia 2025 122",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Italia_2025 (177).jpg",
+      "title": "Ironman Italia 2025 177",
+      "title_hr": "Ironman Italia 2025 177",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Italia_2025 (232).jpg",
+      "title": "Ironman Italia 2025 232",
+      "title_hr": "Ironman Italia 2025 232",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Italia_2025 (268).jpg",
+      "title": "Ironman Italia 2025 268",
+      "title_hr": "Ironman Italia 2025 268",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Italia_2025 (328).jpg",
+      "title": "Ironman Italia 2025 328",
+      "title_hr": "Ironman Italia 2025 328",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Italia_2025 (347).jpg",
+      "title": "Ironman Italia 2025 347",
+      "title_hr": "Ironman Italia 2025 347",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-117.jpg",
+      "title": "Ironman Klagenfurt 117",
+      "title_hr": "Ironman Klagenfurt 117",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-135.jpg",
+      "title": "Ironman Klagenfurt 135",
+      "title_hr": "Ironman Klagenfurt 135",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-144.jpg",
+      "title": "Ironman Klagenfurt 144",
+      "title_hr": "Ironman Klagenfurt 144",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-166.jpg",
+      "title": "Ironman Klagenfurt 166",
+      "title_hr": "Ironman Klagenfurt 166",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-211.jpg",
+      "title": "Ironman Klagenfurt 211",
+      "title_hr": "Ironman Klagenfurt 211",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-219.jpg",
+      "title": "Ironman Klagenfurt 219",
+      "title_hr": "Ironman Klagenfurt 219",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-233.jpg",
+      "title": "Ironman Klagenfurt 233",
+      "title_hr": "Ironman Klagenfurt 233",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-255.jpg",
+      "title": "Ironman Klagenfurt 255",
+      "title_hr": "Ironman Klagenfurt 255",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-261.jpg",
+      "title": "Ironman Klagenfurt 261",
+      "title_hr": "Ironman Klagenfurt 261",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-68.jpg",
+      "title": "Ironman Klagenfurt 68",
+      "title_hr": "Ironman Klagenfurt 68",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Ironman_Klagenfurt-9.jpg",
+      "title": "Ironman Klagenfurt 9",
+      "title_hr": "Ironman Klagenfurt 9",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/MNK_BJ_MNK_Dinamo-13.jpg",
+      "title": "MNK BJ MNK Dinamo 13",
+      "title_hr": "MNK BJ MNK Dinamo 13",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/MotoGP_Austria_2024-7.jpg",
+      "title": "MotoGP Austria 2024 7",
+      "title_hr": "MotoGP Austria 2024 7",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/MotoGP_Austria_2024-75.jpg",
+      "title": "MotoGP Austria 2024 75",
+      "title_hr": "MotoGP Austria 2024 75",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/MotoGP_Austria_2024-87.jpg",
+      "title": "MotoGP Austria 2024 87",
+      "title_hr": "MotoGP Austria 2024 87",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/NoiRa_2025-105.jpg",
+      "title": "NoiRa 2025 105",
+      "title_hr": "NoiRa 2025 105",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/NoiRa_2025-122.jpg",
+      "title": "NoiRa 2025 122",
+      "title_hr": "NoiRa 2025 122",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/NoiRa_2025-137.jpg",
+      "title": "NoiRa 2025 137",
+      "title_hr": "NoiRa 2025 137",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/NoiRa_2025-15.jpg",
+      "title": "NoiRa 2025 15",
+      "title_hr": "NoiRa 2025 15",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/NoiRa_2025-33.jpg",
+      "title": "NoiRa 2025 33",
+      "title_hr": "NoiRa 2025 33",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/NoiRa_2025-63.jpg",
+      "title": "NoiRa 2025 63",
+      "title_hr": "NoiRa 2025 63",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Photo-132.jpg",
+      "title": "Photo 132",
+      "title_hr": "Photo 132",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Photo-35.jpg",
+      "title": "Photo 35",
+      "title_hr": "Photo 35",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Photo-39.jpg",
+      "title": "Photo 39",
+      "title_hr": "Photo 39",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Photo-52.jpg",
+      "title": "Photo 52",
+      "title_hr": "Photo 52",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Photo-70.jpg",
+      "title": "Photo 70",
+      "title_hr": "Photo 70",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Photo-81.jpg",
+      "title": "Photo 81",
+      "title_hr": "Photo 81",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Red_Bull_Ring_20.jpg",
+      "title": "Red Bull Ring 20",
+      "title_hr": "Red Bull Ring 20",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Red_Bull_Ring_22.jpg",
+      "title": "Red Bull Ring 22",
+      "title_hr": "Red Bull Ring 22",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Red_Bull_Ring_3.jpg",
+      "title": "Red Bull Ring 3",
+      "title_hr": "Red Bull Ring 3",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Red_Bull_Ring_6.jpg",
+      "title": "Red Bull Ring 6",
+      "title_hr": "Red Bull Ring 6",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/RK_Bjelovar_RK_Sisak_60.jpg",
+      "title": "RK Bjelovar RK Sisak 60",
+      "title_hr": "RK Bjelovar RK Sisak 60",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Šetnja_Planinarac-23.jpg",
+      "title": "Šetnja Planinarac 23",
+      "title_hr": "Šetnja Planinarac 23",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Šumom_drumom_air-1.JPG",
+      "title": "Šumom Drumom Air 1",
+      "title_hr": "Šumom Drumom Air 1",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/Terezijaner, Nogogur, Alka-13.jpg",
+      "title": "Terezijaner Nogogur Alka 13",
+      "title_hr": "Terezijaner Nogogur Alka 13",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/WRC_Croatia-2.jpg",
+      "title": "WRC Croatia 2",
+      "title_hr": "WRC Croatia 2",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Action/WRC_Croatia-31.jpg",
+      "title": "WRC Croatia 31",
+      "title_hr": "WRC Croatia 31",
+      "category": "action",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Baptism/Ana_krštenje-29.jpg",
+      "title": "Ana Krštenje 29",
+      "title_hr": "Ana Krštenje 29",
+      "category": "baptism",
       "aspect": "portrait"
     },
     {
-      "src": "images/outside/Slika-18_websize.jpg",
-      "title": "The most beautiful tree",
-      "title_hr": "Najljepše drvo",
-      "category": "outside",
+      "src": "images/Baptism/Ana_krštenje-36.jpg",
+      "title": "Ana Krštenje 36",
+      "title_hr": "Ana Krštenje 36",
+      "category": "baptism",
       "aspect": "portrait"
     },
     {
-      "src": "images/events/Festival_balona_Prelog-8.jpg",
-      "title": "Baloon Fest Prelog",
-      "title_hr": "Festival Balona Prelog",
+      "src": "images/Baptism/Ela_Belosevic_krštenje-113.jpg",
+      "title": "Ela Belosevic Krštenje 113",
+      "title_hr": "Ela Belosevic Krštenje 113",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Ela_Belosevic_krštenje-44.jpg",
+      "title": "Ela Belosevic Krštenje 44",
+      "title_hr": "Ela Belosevic Krštenje 44",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Ela_Belosevic_krštenje-53.jpg",
+      "title": "Ela Belosevic Krštenje 53",
+      "title_hr": "Ela Belosevic Krštenje 53",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Ela_Belosevic_krštenje-91.jpg",
+      "title": "Ela Belosevic Krštenje 91",
+      "title_hr": "Ela Belosevic Krštenje 91",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Elena&Tin-63.jpg",
+      "title": "Elena And Tin 63",
+      "title_hr": "Elena And Tin 63",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Elena_krštenje-6.jpg",
+      "title": "Elena Krštenje 6",
+      "title_hr": "Elena Krštenje 6",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Elena_krštenje-63.jpg",
+      "title": "Elena Krštenje 63",
+      "title_hr": "Elena Krštenje 63",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Elena_krštenje-69.jpg",
+      "title": "Elena Krštenje 69",
+      "title_hr": "Elena Krštenje 69",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Fotka-102.jpg",
+      "title": "Fotka 102",
+      "title_hr": "Fotka 102",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Fotka-16.jpg",
+      "title": "Fotka 16",
+      "title_hr": "Fotka 16",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Fotka-19.jpg",
+      "title": "Fotka 19",
+      "title_hr": "Fotka 19",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Fotka-27.jpg",
+      "title": "Fotka 27",
+      "title_hr": "Fotka 27",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Fotka-7.jpg",
+      "title": "Fotka 7",
+      "title_hr": "Fotka 7",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Fotka-88.jpg",
+      "title": "Fotka 88",
+      "title_hr": "Fotka 88",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Marta_Krštenje-125.jpg",
+      "title": "Marta Krštenje 125",
+      "title_hr": "Marta Krštenje 125",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Marta_Krštenje-45.jpg",
+      "title": "Marta Krštenje 45",
+      "title_hr": "Marta Krštenje 45",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Marta_Krštenje-54.jpg",
+      "title": "Marta Krštenje 54",
+      "title_hr": "Marta Krštenje 54",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Niko_Krštenje-36.jpg",
+      "title": "Niko Krštenje 36",
+      "title_hr": "Niko Krštenje 36",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Niko_Krštenje-41.jpg",
+      "title": "Niko Krštenje 41",
+      "title_hr": "Niko Krštenje 41",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Niko_Krštenje-53.jpg",
+      "title": "Niko Krštenje 53",
+      "title_hr": "Niko Krštenje 53",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Rita_krštenje-15.jpg",
+      "title": "Rita Krštenje 15",
+      "title_hr": "Rita Krštenje 15",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Rita_krštenje-74.jpg",
+      "title": "Rita Krštenje 74",
+      "title_hr": "Rita Krštenje 74",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Tabita_Oskera_krstenje_B&W-1.jpg",
+      "title": "Tabita Oskera Krstenje B And W 1",
+      "title_hr": "Tabita Oskera Krstenje B And W 1",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Tabita_Oskera_krstenje-100.jpg",
+      "title": "Tabita Oskera Krstenje 100",
+      "title_hr": "Tabita Oskera Krstenje 100",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Tabita_Oskera_krstenje-20.jpg",
+      "title": "Tabita Oskera Krstenje 20",
+      "title_hr": "Tabita Oskera Krstenje 20",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Tabita_Oskera_krstenje-50.jpg",
+      "title": "Tabita Oskera Krstenje 50",
+      "title_hr": "Tabita Oskera Krstenje 50",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Baptism/Tabita_Oskera_krstenje-53.jpg",
+      "title": "Tabita Oskera Krstenje 53",
+      "title_hr": "Tabita Oskera Krstenje 53",
+      "category": "baptism",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/Events/BABY LASAGNA-16.jpg",
+      "title": "BABY LASAGNA 16",
+      "title_hr": "BABY LASAGNA 16",
       "category": "events",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/sports/Ironam_Italia-353.jpg",
-      "title": "Ironman Italia",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/sports/Ironam_Italia-156.jpg",
-      "title": "Ironman Italia",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
       "aspect": "landscape"
     },
     {
-      "src": "images/events/Festival_balona_Prelog-13.jpg",
-      "title": "Baloon Fest Prelog",
-      "title_hr": "Festival Balona Prelog",
-      "category": "events",
-      "aspect": "portrait"
-    },
-    {
-      "src": "images/sports/Ironam_Italia-285.jpg",
-      "title": "Ironman Italia",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
-      "aspect": "landscape"
-    },
-    {
-      "src": "images/sports/Ironam_Italia-319.jpg",
-      "title": "Ironman Italia",
-      "title_hr": "Ironman Italija",
-      "category": "sports",
-      "aspect": "landscape"
-    },
-    {
-      "src": "images/events/Festival_balona_Prelog-16.jpg",
-      "title": "Baloon Fest Prelog",
-      "title_hr": "Festival Balona Prelog",
+      "src": "images/Events/BABY LASAGNA-23.jpg",
+      "title": "BABY LASAGNA 23",
+      "title_hr": "BABY LASAGNA 23",
       "category": "events",
       "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/BABY LASAGNA-48.jpg",
+      "title": "BABY LASAGNA 48",
+      "title_hr": "BABY LASAGNA 48",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/BigBand-58.jpg",
+      "title": "Big Band 58",
+      "title_hr": "Big Band 58",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/BOK_Fest_Otvorenje-54.jpg",
+      "title": "BOK Fest Otvorenje 54",
+      "title_hr": "BOK Fest Otvorenje 54",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/BOK_Fest_Otvorenje-74.jpg",
+      "title": "BOK Fest Otvorenje 74",
+      "title_hr": "BOK Fest Otvorenje 74",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Dalmatinci br2-22.jpg",
+      "title": "Dalmatinci Br2 22",
+      "title_hr": "Dalmatinci Br2 22",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Dan_-53.jpg",
+      "title": "Dan 53",
+      "title_hr": "Dan 53",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/DanPetakPark-64.jpg",
+      "title": "Dan Petak Park 64",
+      "title_hr": "Dan Petak Park 64",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/DubiozaKolektiv-23.jpg",
+      "title": "Dubioza Kolektiv 23",
+      "title_hr": "Dubioza Kolektiv 23",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/DubiozaKolektiv-37.jpg",
+      "title": "Dubioza Kolektiv 37",
+      "title_hr": "Dubioza Kolektiv 37",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/DubiozaKolektiv-47.jpg",
+      "title": "Dubioza Kolektiv 47",
+      "title_hr": "Dubioza Kolektiv 47",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/DubiozaKolektiv-75.jpg",
+      "title": "Dubioza Kolektiv 75",
+      "title_hr": "Dubioza Kolektiv 75",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Etno_Fest_Veliko_Trojstvo-118.jpg",
+      "title": "Etno Fest Veliko Trojstvo 118",
+      "title_hr": "Etno Fest Veliko Trojstvo 118",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Festival_balona_Prelog-19.jpg",
+      "title": "Festival Balona Prelog 19",
+      "title_hr": "Festival Balona Prelog 19",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Festival_balona_Prelog-8.jpg",
+      "title": "Festival Balona Prelog 8",
+      "title_hr": "Festival Balona Prelog 8",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Festival_Vukovar-30.jpg",
+      "title": "Festival Vukovar 30",
+      "title_hr": "Festival Vukovar 30",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Festival_Vukovar-94.jpg",
+      "title": "Festival Vukovar 94",
+      "title_hr": "Festival Vukovar 94",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Fotka-24.jpg",
+      "title": "Fotka 24",
+      "title_hr": "Fotka 24",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Fotka-28.jpg",
+      "title": "Fotka 28",
+      "title_hr": "Fotka 28",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Fotka-51.jpg",
+      "title": "Fotka 51",
+      "title_hr": "Fotka 51",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/HiljsonMiach-20.jpg",
+      "title": "Hiljson Miach 20",
+      "title_hr": "Hiljson Miach 20",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/HiljsonMiach-25.jpg",
+      "title": "Hiljson Miach 25",
+      "title_hr": "Hiljson Miach 25",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Izložba_glumaca_moto_alka-72.jpg",
+      "title": "Izložba Glumaca Moto Alka 72",
+      "title_hr": "Izložba Glumaca Moto Alka 72",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Mažuretkinje-5.jpg",
+      "title": "Mažuretkinje 5",
+      "title_hr": "Mažuretkinje 5",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/MisoiKovaciUlicniZabavljaci-40.jpg",
+      "title": "Miso I Kovaci Ulicni Zabavljaci 40",
+      "title_hr": "Miso I Kovaci Ulicni Zabavljaci 40",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/MisoiKovaciUlicniZabavljaci-73.jpg",
+      "title": "Miso I Kovaci Ulicni Zabavljaci 73",
+      "title_hr": "Miso I Kovaci Ulicni Zabavljaci 73",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Potraga_za_pisanicama_2025-2.jpg",
+      "title": "Potraga Za Pisanicama 2025 2",
+      "title_hr": "Potraga Za Pisanicama 2025 2",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Prljavci-14.jpg",
+      "title": "Prljavci 14",
+      "title_hr": "Prljavci 14",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Prljavci-27.jpg",
+      "title": "Prljavci 27",
+      "title_hr": "Prljavci 27",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Prljavci-34.jpg",
+      "title": "Prljavci 34",
+      "title_hr": "Prljavci 34",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Prljavci-40.jpg",
+      "title": "Prljavci 40",
+      "title_hr": "Prljavci 40",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Stelzen_Art_11.jpg",
+      "title": "Stelzen Art 11",
+      "title_hr": "Stelzen Art 11",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Stelzen_Art_25.jpg",
+      "title": "Stelzen Art 25",
+      "title_hr": "Stelzen Art 25",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Stelzen_Art_6.jpg",
+      "title": "Stelzen Art 6",
+      "title_hr": "Stelzen Art 6",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/SubotaJutro-100.jpg",
+      "title": "Subota Jutro 100",
+      "title_hr": "Subota Jutro 100",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/SubotaJutro-101.jpg",
+      "title": "Subota Jutro 101",
+      "title_hr": "Subota Jutro 101",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Terezijana_2023_Severina-15.JPG",
+      "title": "Terezijana 2023 Severina 15",
+      "title_hr": "Terezijana 2023 Severina 15",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Terezijana_2023_Severina-18.JPG",
+      "title": "Terezijana 2023 Severina 18",
+      "title_hr": "Terezijana 2023 Severina 18",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Terezijana_2023_Severina-25.JPG",
+      "title": "Terezijana 2023 Severina 25",
+      "title_hr": "Terezijana 2023 Severina 25",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Terezijana_2023_Severina-28.JPG",
+      "title": "Terezijana 2023 Severina 28",
+      "title_hr": "Terezijana 2023 Severina 28",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Terezijaner, Nogogur, Alka-186.jpg",
+      "title": "Terezijaner Nogogur Alka 186",
+      "title_hr": "Terezijaner Nogogur Alka 186",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/UlicaNoć-10.jpg",
+      "title": "Ulica Noć 10",
+      "title_hr": "Ulica Noć 10",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/UlicaNoć-33.jpg",
+      "title": "Ulica Noć 33",
+      "title_hr": "Ulica Noć 33",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/UlicaNoć-36.jpg",
+      "title": "Ulica Noć 36",
+      "title_hr": "Ulica Noć 36",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Uskrs_u_Bjelovaru-11.jpg",
+      "title": "Uskrs U Bjelovaru 11",
+      "title_hr": "Uskrs U Bjelovaru 11",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Uskrs_u_Bjelovaru-3.jpg",
+      "title": "Uskrs U Bjelovaru 3",
+      "title_hr": "Uskrs U Bjelovaru 3",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Uskrs_u_Bjelovaru-38.jpg",
+      "title": "Uskrs U Bjelovaru 38",
+      "title_hr": "Uskrs U Bjelovaru 38",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/Uskrs_u_Bjelovaru-46.jpg",
+      "title": "Uskrs U Bjelovaru 46",
+      "title_hr": "Uskrs U Bjelovaru 46",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Events/ZabranjenoPusenje-1.jpg",
+      "title": "Zabranjeno Pusenje 1",
+      "title_hr": "Zabranjeno Pusenje 1",
+      "category": "events",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Food/Andrija i ostalo-14.jpg",
+      "title": "Andrija I Ostalo 14",
+      "title_hr": "Andrija I Ostalo 14",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Andrija i ostalo-18.jpg",
+      "title": "Andrija I Ostalo 18",
+      "title_hr": "Andrija I Ostalo 18",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Andrija i ostalo-20.jpg",
+      "title": "Andrija I Ostalo 20",
+      "title_hr": "Andrija I Ostalo 20",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Andrija i ostalo-23.jpg",
+      "title": "Andrija I Ostalo 23",
+      "title_hr": "Andrija I Ostalo 23",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Andrija i ostalo-63.jpg",
+      "title": "Andrija I Ostalo 63",
+      "title_hr": "Andrija I Ostalo 63",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Andrija i ostalo-84.jpg",
+      "title": "Andrija I Ostalo 84",
+      "title_hr": "Andrija I Ostalo 84",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/BOK_Fest_Otvorenje-87.jpg",
+      "title": "BOK Fest Otvorenje 87",
+      "title_hr": "BOK Fest Otvorenje 87",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Dan_-6.jpg",
+      "title": "Dan 6",
+      "title_hr": "Dan 6",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/DanPetakPark-49.jpg",
+      "title": "Dan Petak Park 49",
+      "title_hr": "Dan Petak Park 49",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Elena&Tin-116.jpg",
+      "title": "Elena And Tin 116",
+      "title_hr": "Elena And Tin 116",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Elena&Tin-187.jpg",
+      "title": "Elena And Tin 187",
+      "title_hr": "Elena And Tin 187",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Elena&Tin-293.jpg",
+      "title": "Elena And Tin 293",
+      "title_hr": "Elena And Tin 293",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Franz_brunch-19.jpg",
+      "title": "Franz Brunch 19",
+      "title_hr": "Franz Brunch 19",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Franz_brunch-23.jpg",
+      "title": "Franz Brunch 23",
+      "title_hr": "Franz Brunch 23",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Franz_brunch-29.jpg",
+      "title": "Franz Brunch 29",
+      "title_hr": "Franz Brunch 29",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Franz_brunch-31.jpg",
+      "title": "Franz Brunch 31",
+      "title_hr": "Franz Brunch 31",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Franz_brunch-46.jpg",
+      "title": "Franz Brunch 46",
+      "title_hr": "Franz Brunch 46",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Hrana_111.jpg",
+      "title": "Hrana 111",
+      "title_hr": "Hrana 111",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Hrana_13.jpg",
+      "title": "Hrana 13",
+      "title_hr": "Hrana 13",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Hrana_179.jpg",
+      "title": "Hrana 179",
+      "title_hr": "Hrana 179",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Hrana_55.jpg",
+      "title": "Hrana 55",
+      "title_hr": "Hrana 55",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Journal-1.jpg",
+      "title": "Journal 1",
+      "title_hr": "Journal 1",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-102.jpg",
+      "title": "Mood Media TZBB Petak 102",
+      "title_hr": "Mood Media TZBB Petak 102",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-128.jpg",
+      "title": "Mood Media TZBB Petak 128",
+      "title_hr": "Mood Media TZBB Petak 128",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-136.jpg",
+      "title": "Mood Media TZBB Petak 136",
+      "title_hr": "Mood Media TZBB Petak 136",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-147.jpg",
+      "title": "Mood Media TZBB Petak 147",
+      "title_hr": "Mood Media TZBB Petak 147",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-151.jpg",
+      "title": "Mood Media TZBB Petak 151",
+      "title_hr": "Mood Media TZBB Petak 151",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-173.jpg",
+      "title": "Mood Media TZBB Petak 173",
+      "title_hr": "Mood Media TZBB Petak 173",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_petak-86.jpg",
+      "title": "Mood Media TZBB Petak 86",
+      "title_hr": "Mood Media TZBB Petak 86",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_subota-129.jpg",
+      "title": "Mood Media TZBB Subota 129",
+      "title_hr": "Mood Media TZBB Subota 129",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_subota-154.jpg",
+      "title": "Mood Media TZBB Subota 154",
+      "title_hr": "Mood Media TZBB Subota 154",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Mood_Media_TZBB_subota-166.jpg",
+      "title": "Mood Media TZBB Subota 166",
+      "title_hr": "Mood Media TZBB Subota 166",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Otvorenje-19.jpg",
+      "title": "Otvorenje 19",
+      "title_hr": "Otvorenje 19",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Pečenjak_fest_2025-40.jpg",
+      "title": "Pečenjak Fest 2025 40",
+      "title_hr": "Pečenjak Fest 2025 40",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_ponedjeljak-2.jpg",
+      "title": "Studijsko Ponedjeljak 2",
+      "title_hr": "Studijsko Ponedjeljak 2",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_ponedjeljak-69.jpg",
+      "title": "Studijsko Ponedjeljak 69",
+      "title_hr": "Studijsko Ponedjeljak 69",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_srijeda-110.jpg",
+      "title": "Studijsko Srijeda 110",
+      "title_hr": "Studijsko Srijeda 110",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_srijeda-115.jpg",
+      "title": "Studijsko Srijeda 115",
+      "title_hr": "Studijsko Srijeda 115",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_srijeda-65.jpg",
+      "title": "Studijsko Srijeda 65",
+      "title_hr": "Studijsko Srijeda 65",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_srijeda-99.jpg",
+      "title": "Studijsko Srijeda 99",
+      "title_hr": "Studijsko Srijeda 99",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-103.jpg",
+      "title": "Studijsko Utorak 103",
+      "title_hr": "Studijsko Utorak 103",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-32.jpg",
+      "title": "Studijsko Utorak 32",
+      "title_hr": "Studijsko Utorak 32",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-52.jpg",
+      "title": "Studijsko Utorak 52",
+      "title_hr": "Studijsko Utorak 52",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-58.jpg",
+      "title": "Studijsko Utorak 58",
+      "title_hr": "Studijsko Utorak 58",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-59.jpg",
+      "title": "Studijsko Utorak 59",
+      "title_hr": "Studijsko Utorak 59",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-63.jpg",
+      "title": "Studijsko Utorak 63",
+      "title_hr": "Studijsko Utorak 63",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-65.jpg",
+      "title": "Studijsko Utorak 65",
+      "title_hr": "Studijsko Utorak 65",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Food/Studijsko_utorak-94.jpg",
+      "title": "Studijsko Utorak 94",
+      "title_hr": "Studijsko Utorak 94",
+      "category": "food",
+      "aspect": "square"
+    },
+    {
+      "src": "images/Motion/Audi_RS3 (3).jpg",
+      "title": "Audi RS3 3",
+      "title_hr": "Audi RS3 3",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Audi_RS3 (41).jpg",
+      "title": "Audi RS3 41",
+      "title_hr": "Audi RS3 41",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Audi_RS3 (5).jpg",
+      "title": "Audi RS3 5",
+      "title_hr": "Audi RS3 5",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Austria_34.jpg",
+      "title": "Austria 34",
+      "title_hr": "Austria 34",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Baterijski_Vlak_BJ-6.jpg",
+      "title": "Baterijski Vlak BJ 6",
+      "title_hr": "Baterijski Vlak BJ 6",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2024-27.jpg",
+      "title": "Budnica 2024 27",
+      "title_hr": "Budnica 2024 27",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2024-30.jpg",
+      "title": "Budnica 2024 30",
+      "title_hr": "Budnica 2024 30",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2024-344.jpg",
+      "title": "Budnica 2024 344",
+      "title_hr": "Budnica 2024 344",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2024-46.jpg",
+      "title": "Budnica 2024 46",
+      "title_hr": "Budnica 2024 46",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2024-50.jpg",
+      "title": "Budnica 2024 50",
+      "title_hr": "Budnica 2024 50",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-109.jpg",
+      "title": "Budnica 2025 109",
+      "title_hr": "Budnica 2025 109",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-11.jpg",
+      "title": "Budnica 2025 11",
+      "title_hr": "Budnica 2025 11",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-117.jpg",
+      "title": "Budnica 2025 117",
+      "title_hr": "Budnica 2025 117",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-3.jpg",
+      "title": "Budnica 2025 3",
+      "title_hr": "Budnica 2025 3",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-50.jpg",
+      "title": "Budnica 2025 50",
+      "title_hr": "Budnica 2025 50",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-54.jpg",
+      "title": "Budnica 2025 54",
+      "title_hr": "Budnica 2025 54",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-66.jpg",
+      "title": "Budnica 2025 66",
+      "title_hr": "Budnica 2025 66",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-79.jpg",
+      "title": "Budnica 2025 79",
+      "title_hr": "Budnica 2025 79",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Budnica_2025-89.jpg",
+      "title": "Budnica 2025 89",
+      "title_hr": "Budnica 2025 89",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Dinko_RS-3.jpg",
+      "title": "Dinko RS 3",
+      "title_hr": "Dinko RS 3",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/DSC07975.jpg",
+      "title": "DSC07975",
+      "title_hr": "DSC07975",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/DSC07984.jpg",
+      "title": "DSC07984",
+      "title_hr": "DSC07984",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Econo_bikes-20.jpg",
+      "title": "Econo Bikes 20",
+      "title_hr": "Econo Bikes 20",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Econo_bikes-24.jpg",
+      "title": "Econo Bikes 24",
+      "title_hr": "Econo Bikes 24",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Ford GT Las Vegas 2008 (37).JPG",
+      "title": "Ford GT Las Vegas 2008 37",
+      "title_hr": "Ford GT Las Vegas 2008 37",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Ford GT Las Vegas 2008 (96).JPG",
+      "title": "Ford GT Las Vegas 2008 96",
+      "title_hr": "Ford GT Las Vegas 2008 96",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Forest-1.jpg",
+      "title": "Forest 1",
+      "title_hr": "Forest 1",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Fotka-4.jpg",
+      "title": "Fotka 4",
+      "title_hr": "Fotka 4",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Ironman_Italia_2025 (72).jpg",
+      "title": "Ironman Italia 2025 72",
+      "title_hr": "Ironman Italia 2025 72",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Ironman_Klagenfurt-227.jpg",
+      "title": "Ironman Klagenfurt 227",
+      "title_hr": "Ironman Klagenfurt 227",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Iz_zraka-31.JPG",
+      "title": "Iz Zraka 31",
+      "title_hr": "Iz Zraka 31",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Karting_lepirac-14.jpg",
+      "title": "Karting Lepirac 14",
+      "title_hr": "Karting Lepirac 14",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Karting_lepirac-7.jpg",
+      "title": "Karting Lepirac 7",
+      "title_hr": "Karting Lepirac 7",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Krila_Oluje_BJ-3.jpg",
+      "title": "Krila Oluje BJ 3",
+      "title_hr": "Krila Oluje BJ 3",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Krila_Oluje_BJ-5.jpg",
+      "title": "Krila Oluje BJ 5",
+      "title_hr": "Krila Oluje BJ 5",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Look-21.JPG",
+      "title": "Look 21",
+      "title_hr": "Look 21",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Look-6.JPG",
+      "title": "Look 6",
+      "title_hr": "Look 6",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Look-9.JPG",
+      "title": "Look 9",
+      "title_hr": "Look 9",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Macosa_pod_snijegom-9.jpg",
+      "title": "Macosa Pod Snijegom 9",
+      "title_hr": "Macosa Pod Snijegom 9",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Macosa_prosinac-3.jpg",
+      "title": "Macosa Prosinac 3",
+      "title_hr": "Macosa Prosinac 3",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/MotoGP_Austria_2024-43.jpg",
+      "title": "MotoGP Austria 2024 43",
+      "title_hr": "MotoGP Austria 2024 43",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/MotoGP_Austria_2024-56.jpg",
+      "title": "MotoGP Austria 2024 56",
+      "title_hr": "MotoGP Austria 2024 56",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Povorka-47.jpg",
+      "title": "Povorka 47",
+      "title_hr": "Povorka 47",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Red_Bull_Ring_8.jpg",
+      "title": "Red Bull Ring 8",
+      "title_hr": "Red Bull Ring 8",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Slika-28.jpg",
+      "title": "Slika 28",
+      "title_hr": "Slika 28",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Slika-31.jpg",
+      "title": "Slika 31",
+      "title_hr": "Slika 31",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Snowfall_bilogora-2.jpg",
+      "title": "Snowfall Bilogora 2",
+      "title_hr": "Snowfall Bilogora 2",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Spomen_park_Kapela-39.jpg",
+      "title": "Spomen Park Kapela 39",
+      "title_hr": "Spomen Park Kapela 39",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Studijsko_ponedjeljak-89.jpg",
+      "title": "Studijsko Ponedjeljak 89",
+      "title_hr": "Studijsko Ponedjeljak 89",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Subaru-10.jpg",
+      "title": "Subaru 10",
+      "title_hr": "Subaru 10",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Subaru-15.jpg",
+      "title": "Subaru 15",
+      "title_hr": "Subaru 15",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Subaru-17.jpg",
+      "title": "Subaru 17",
+      "title_hr": "Subaru 17",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Subaru-2.jpg",
+      "title": "Subaru 2",
+      "title_hr": "Subaru 2",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Subaru-21.jpg",
+      "title": "Subaru 21",
+      "title_hr": "Subaru 21",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Subaru-7.jpg",
+      "title": "Subaru 7",
+      "title_hr": "Subaru 7",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/SubotaJutro-130.jpg",
+      "title": "Subota Jutro 130",
+      "title_hr": "Subota Jutro 130",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/SubotaJutro-58.jpg",
+      "title": "Subota Jutro 58",
+      "title_hr": "Subota Jutro 58",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/SubotaJutro-61.jpg",
+      "title": "Subota Jutro 61",
+      "title_hr": "Subota Jutro 61",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Svibanj_2024-2.jpg",
+      "title": "Svibanj 2024 2",
+      "title_hr": "Svibanj 2024 2",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Svibanj_2024-22.jpg",
+      "title": "Svibanj 2024 22",
+      "title_hr": "Svibanj 2024 22",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Train_pass_by.jpg",
+      "title": "Train Pass By",
+      "title_hr": "Train Pass By",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlak_Kronospan-5.jpg",
+      "title": "Vlak Kronospan 5",
+      "title_hr": "Vlak Kronospan 5",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlak_rujan_2023-39.jpg",
+      "title": "Vlak Rujan 2023 39",
+      "title_hr": "Vlak Rujan 2023 39",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_03.2025.-54.jpg",
+      "title": "Vlakovi 03 2025 54",
+      "title_hr": "Vlakovi 03 2025 54",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_03.2025.-71.jpg",
+      "title": "Vlakovi 03 2025 71",
+      "title_hr": "Vlakovi 03 2025 71",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_03.2025.-78.jpg",
+      "title": "Vlakovi 03 2025 78",
+      "title_hr": "Vlakovi 03 2025 78",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_04.2025.-1.jpg",
+      "title": "Vlakovi 04 2025 1",
+      "title_hr": "Vlakovi 04 2025 1",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_04.2025.-16.jpg",
+      "title": "Vlakovi 04 2025 16",
+      "title_hr": "Vlakovi 04 2025 16",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_Listopad_2024-1.jpg",
+      "title": "Vlakovi Listopad 2024 1",
+      "title_hr": "Vlakovi Listopad 2024 1",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_rujan_2024-6.jpg",
+      "title": "Vlakovi Rujan 2024 6",
+      "title_hr": "Vlakovi Rujan 2024 6",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_Studeni-13.jpg",
+      "title": "Vlakovi Studeni 13",
+      "title_hr": "Vlakovi Studeni 13",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_Studeni-27.jpg",
+      "title": "Vlakovi Studeni 27",
+      "title_hr": "Vlakovi Studeni 27",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_Studeni-33.jpg",
+      "title": "Vlakovi Studeni 33",
+      "title_hr": "Vlakovi Studeni 33",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Motion/Vlakovi_Studeni-94.jpg",
+      "title": "Vlakovi Studeni 94",
+      "title_hr": "Vlakovi Studeni 94",
+      "category": "motion",
+      "aspect": "wide"
+    },
+    {
+      "src": "images/Nature/Bjelovar_iz_Letičana-20.jpg",
+      "title": "Bjelovar Iz Letičana 20",
+      "title_hr": "Bjelovar Iz Letičana 20",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Castor&Cezar-15.jpg",
+      "title": "Castor And Cezar 15",
+      "title_hr": "Castor And Cezar 15",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Castor&Cezar-24.jpg",
+      "title": "Castor And Cezar 24",
+      "title_hr": "Castor And Cezar 24",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Cezar&Castor-10.jpg",
+      "title": "Cezar And Castor 10",
+      "title_hr": "Cezar And Castor 10",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Cezar&Castor-11.jpg",
+      "title": "Cezar And Castor 11",
+      "title_hr": "Cezar And Castor 11",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Fotka-11.jpg",
+      "title": "Fotka 11",
+      "title_hr": "Fotka 11",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Fotka-20.jpg",
+      "title": "Fotka 20",
+      "title_hr": "Fotka 20",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Fotka-28.jpg",
+      "title": "Fotka 28",
+      "title_hr": "Fotka 28",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Fotka-5.jpg",
+      "title": "Fotka 5",
+      "title_hr": "Fotka 5",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Fotka-7.jpg",
+      "title": "Fotka 7",
+      "title_hr": "Fotka 7",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Mood_Media_TZBB_subota-118.jpg",
+      "title": "Mood Media TZBB Subota 118",
+      "title_hr": "Mood Media TZBB Subota 118",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Mood_Media_TZBB_subota-74.jpg",
+      "title": "Mood Media TZBB Subota 74",
+      "title_hr": "Mood Media TZBB Subota 74",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Slika-13.jpg",
+      "title": "Slika 13",
+      "title_hr": "Slika 13",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Slika-15.jpg",
+      "title": "Slika 15",
+      "title_hr": "Slika 15",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Snježna_Subota_22112025-2.jpg",
+      "title": "Snježna Subota 22112025 2",
+      "title_hr": "Snježna Subota 22112025 2",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Studijsko_ponedjeljak-104.jpg",
+      "title": "Studijsko Ponedjeljak 104",
+      "title_hr": "Studijsko Ponedjeljak 104",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Studijsko_ponedjeljak-108.jpg",
+      "title": "Studijsko Ponedjeljak 108",
+      "title_hr": "Studijsko Ponedjeljak 108",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Studijsko_ponedjeljak-33.jpg",
+      "title": "Studijsko Ponedjeljak 33",
+      "title_hr": "Studijsko Ponedjeljak 33",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Nature/Studijsko_srijeda-57.jpg",
+      "title": "Studijsko Srijeda 57",
+      "title_hr": "Studijsko Srijeda 57",
+      "category": "nature",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Argonauti_na_Kupi_full-1.jpg",
+      "title": "Argonauti Na Kupi Full 1",
+      "title_hr": "Argonauti Na Kupi Full 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Austria_9.jpg",
+      "title": "Austria 9",
+      "title_hr": "Austria 9",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Bilogora_proljeće-5.jpg",
+      "title": "Bilogora Proljeće 5",
+      "title_hr": "Bilogora Proljeće 5",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Bilogorski_krajolici-6.jpg",
+      "title": "Bilogorski Krajolici 6",
+      "title_hr": "Bilogorski Krajolici 6",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/BJ_night.jpg",
+      "title": "BJ Night",
+      "title_hr": "BJ Night",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Bjelovar_giants (2).jpg",
+      "title": "Bjelovar Giants 2",
+      "title_hr": "Bjelovar Giants 2",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Bjelovar_s_Vidikovca-3.jpg",
+      "title": "Bjelovar S Vidikovca 3",
+      "title_hr": "Bjelovar S Vidikovca 3",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Bjelovar_Studeni_2024-8.jpg",
+      "title": "Bjelovar Studeni 2024 8",
+      "title_hr": "Bjelovar Studeni 2024 8",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/DJI_0006.jpg",
+      "title": "DJI 0006",
+      "title_hr": "DJI 0006",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/DJI_0021.jpg",
+      "title": "DJI 0021",
+      "title_hr": "DJI 0021",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/DJI_0070-HDR.jpg",
+      "title": "DJI 0070 HDR",
+      "title_hr": "DJI 0070 HDR",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Etno_Kuća_proljeće-2.jpg",
+      "title": "Etno Kuća Proljeće 2",
+      "title_hr": "Etno Kuća Proljeće 2",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Festival_balona_2024-10.jpg",
+      "title": "Festival Balona 2024 10",
+      "title_hr": "Festival Balona 2024 10",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Festival_balona_2024-2.jpg",
+      "title": "Festival Balona 2024 2",
+      "title_hr": "Festival Balona 2024 2",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Fotka-14.jpg",
+      "title": "Fotka 14",
+      "title_hr": "Fotka 14",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Fotka-2.jpg",
+      "title": "Fotka 2",
+      "title_hr": "Fotka 2",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Fotka-3 (1).jpg",
+      "title": "Fotka 3 1",
+      "title_hr": "Fotka 3 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Fotka-4 (1).jpg",
+      "title": "Fotka 4 1",
+      "title_hr": "Fotka 4 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Fotka-6.jpg",
+      "title": "Fotka 6",
+      "title_hr": "Fotka 6",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/fullmoon_07052020.jpg",
+      "title": "Fullmoon 07052020",
+      "title_hr": "Fullmoon 07052020",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/HPD_Bilogora_Proljeće-110.jpg",
+      "title": "HPD Bilogora Proljeće 110",
+      "title_hr": "HPD Bilogora Proljeće 110",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/HPD_Bilogora_Proljeće-23.jpg",
+      "title": "HPD Bilogora Proljeće 23",
+      "title_hr": "HPD Bilogora Proljeće 23",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/HPD_Bilogora_Proljeće-63.jpg",
+      "title": "HPD Bilogora Proljeće 63",
+      "title_hr": "HPD Bilogora Proljeće 63",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Hrast_prije_Trojstva_3.jpg",
+      "title": "Hrast Prije Trojstva 3",
+      "title_hr": "Hrast Prije Trojstva 3",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Ironman_Italia_2025 (105).jpg",
+      "title": "Ironman Italia 2025 105",
+      "title_hr": "Ironman Italia 2025 105",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/iz zraka-24.jpg",
+      "title": "Iz Zraka 24",
+      "title_hr": "Iz Zraka 24",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/iz zraka-6.jpg",
+      "title": "Iz Zraka 6",
+      "title_hr": "Iz Zraka 6",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Jesen_na_Planinarcu_2024-12.jpg",
+      "title": "Jesen Na Planinarcu 2024 12",
+      "title_hr": "Jesen Na Planinarcu 2024 12",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Krijes_Veliko_Trojstvo-5.jpg",
+      "title": "Krijes Veliko Trojstvo 5",
+      "title_hr": "Krijes Veliko Trojstvo 5",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Lastovo-76.jpg",
+      "title": "Lastovo 76",
+      "title_hr": "Lastovo 76",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Lastovo-84.jpg",
+      "title": "Lastovo 84",
+      "title_hr": "Lastovo 84",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Milky_way-99.jpg",
+      "title": "Milky Way 99",
+      "title_hr": "Milky Way 99",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Močvara (1).jpg",
+      "title": "Močvara 1",
+      "title_hr": "Močvara 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Mood_Media_TZBB_petak-26.jpg",
+      "title": "Mood Media TZBB Petak 26",
+      "title_hr": "Mood Media TZBB Petak 26",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Oblaci_na_Brdu-4.jpg",
+      "title": "Oblaci Na Brdu 4",
+      "title_hr": "Oblaci Na Brdu 4",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Oranice_3.jpg",
+      "title": "Oranice 3",
+      "title_hr": "Oranice 3",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Paški_most-2.jpg",
+      "title": "Paški Most 2",
+      "title_hr": "Paški Most 2",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Paški_most-4.jpg",
+      "title": "Paški Most 4",
+      "title_hr": "Paški Most 4",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Pavle_final-1.jpg",
+      "title": "Pavle Final 1",
+      "title_hr": "Pavle Final 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Polje_maka_Ćurlovac (3).jpg",
+      "title": "Polje Maka Ćurlovac 3",
+      "title_hr": "Polje Maka Ćurlovac 3",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Polje_maslačak (13).jpg",
+      "title": "Polje Maslačak 13",
+      "title_hr": "Polje Maslačak 13",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Puni_mjesec_08082025-1.jpg",
+      "title": "Puni Mjesec 08082025 1",
+      "title_hr": "Puni Mjesec 08082025 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Romska_kuća-12.JPG",
+      "title": "Romska Kuća 12",
+      "title_hr": "Romska Kuća 12",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Slika-19.jpg",
+      "title": "Slika 19",
+      "title_hr": "Slika 19",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Snježna_Subota_22112025-33.jpg",
+      "title": "Snježna Subota 22112025 33",
+      "title_hr": "Snježna Subota 22112025 33",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Snowfall_bilogora-4.jpg",
+      "title": "Snowfall Bilogora 4",
+      "title_hr": "Snowfall Bilogora 4",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Stare_kuće-1.jpg",
+      "title": "Stare Kuće 1",
+      "title_hr": "Stare Kuće 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Stari_grad_Garić-7.jpg",
+      "title": "Stari Grad Garić 7",
+      "title_hr": "Stari Grad Garić 7",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Sunrise_cvjetna-1.jpg",
+      "title": "Sunrise Cvjetna 1",
+      "title_hr": "Sunrise Cvjetna 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Sunrise-28.jpg",
+      "title": "Sunrise 28",
+      "title_hr": "Sunrise 28",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Svijetle_pruge_3.jpg",
+      "title": "Svijetle Pruge 3",
+      "title_hr": "Svijetle Pruge 3",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Tomaš-2.jpg",
+      "title": "Tomaš 2",
+      "title_hr": "Tomaš 2",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Voćnjak-14.jpg",
+      "title": "Voćnjak 14",
+      "title_hr": "Voćnjak 14",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Voćnjak-16.jpg",
+      "title": "Voćnjak 16",
+      "title_hr": "Voćnjak 16",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Voćnjak-3.jpg",
+      "title": "Voćnjak 3",
+      "title_hr": "Voćnjak 3",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/zalazak (1).jpg",
+      "title": "Zalazak 1",
+      "title_hr": "Zalazak 1",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Žetva_19.jpg",
+      "title": "Žetva 19",
+      "title_hr": "Žetva 19",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/Outdoor/Žetva_24.jpg",
+      "title": "Žetva 24",
+      "title_hr": "Žetva 24",
+      "category": "outdoor",
+      "aspect": "landscape"
+    },
+    {
+      "src": "images/People/Alen_Fazo-12.jpg",
+      "title": "Alen Fazo 12",
+      "title_hr": "Alen Fazo 12",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Alfa_Jukebox-12.jpg",
+      "title": "Alfa Jukebox 12",
+      "title_hr": "Alfa Jukebox 12",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Alfa_Jukebox-50.jpg",
+      "title": "Alfa Jukebox 50",
+      "title_hr": "Alfa Jukebox 50",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/BOK_Fest_Otvorenje-13.jpg",
+      "title": "BOK Fest Otvorenje 13",
+      "title_hr": "BOK Fest Otvorenje 13",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/BOK_Fest_Otvorenje-80.jpg",
+      "title": "BOK Fest Otvorenje 80",
+      "title_hr": "BOK Fest Otvorenje 80",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Budnica_2025-31.jpg",
+      "title": "Budnica 2025 31",
+      "title_hr": "Budnica 2025 31",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Cirkus_Kabare-2.jpg",
+      "title": "Cirkus Kabare 2",
+      "title_hr": "Cirkus Kabare 2",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Čonč-6.jpg",
+      "title": "Čonč 6",
+      "title_hr": "Čonč 6",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/DanPetakPark-62.jpg",
+      "title": "Dan Petak Park 62",
+      "title_hr": "Dan Petak Park 62",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/DJ_Skodilak_Elvis_Retro_Jukebox-34.jpg",
+      "title": "DJ Skodilak Elvis Retro Jukebox 34",
+      "title_hr": "DJ Skodilak Elvis Retro Jukebox 34",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Elemental-6.jpg",
+      "title": "Elemental 6",
+      "title_hr": "Elemental 6",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Etno_Fest_Veliko_Trojstvo-110.jpg",
+      "title": "Etno Fest Veliko Trojstvo 110",
+      "title_hr": "Etno Fest Veliko Trojstvo 110",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Etno_Fest_Veliko_Trojstvo-113.jpg",
+      "title": "Etno Fest Veliko Trojstvo 113",
+      "title_hr": "Etno Fest Veliko Trojstvo 113",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Etno_Fest_Veliko_Trojstvo-54.jpg",
+      "title": "Etno Fest Veliko Trojstvo 54",
+      "title_hr": "Etno Fest Veliko Trojstvo 54",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Etno_Fest_Veliko_Trojstvo-63.jpg",
+      "title": "Etno Fest Veliko Trojstvo 63",
+      "title_hr": "Etno Fest Veliko Trojstvo 63",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Etno_Fest_Veliko_Trojstvo-95.jpg",
+      "title": "Etno Fest Veliko Trojstvo 95",
+      "title_hr": "Etno Fest Veliko Trojstvo 95",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/HPD_Bilogora_Proljeće-16.jpg",
+      "title": "HPD Bilogora Proljeće 16",
+      "title_hr": "HPD Bilogora Proljeće 16",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Jenz-121.jpg",
+      "title": "Jenz 121",
+      "title_hr": "Jenz 121",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Jenz-139.jpg",
+      "title": "Jenz 139",
+      "title_hr": "Jenz 139",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Jenz-3.jpg",
+      "title": "Jenz 3",
+      "title_hr": "Jenz 3",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Journal-22.jpg",
+      "title": "Journal 22",
+      "title_hr": "Journal 22",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Krongen-13.jpg",
+      "title": "Krongen 13",
+      "title_hr": "Krongen 13",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Krongen-20.jpg",
+      "title": "Krongen 20",
+      "title_hr": "Krongen 20",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Krongen-23.jpg",
+      "title": "Krongen 23",
+      "title_hr": "Krongen 23",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Krongen-5.jpg",
+      "title": "Krongen 5",
+      "title_hr": "Krongen 5",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Krongen-8.jpg",
+      "title": "Krongen 8",
+      "title_hr": "Krongen 8",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Last_Ride_2021-1.jpg",
+      "title": "Last Ride 2021 1",
+      "title_hr": "Last Ride 2021 1",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Matea&Jura-6.jpg",
+      "title": "Matea And Jura 6",
+      "title_hr": "Matea And Jura 6",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/MisoiKovaciUlicniZabavljaci-47.jpg",
+      "title": "Miso I Kovaci Ulicni Zabavljaci 47",
+      "title_hr": "Miso I Kovaci Ulicni Zabavljaci 47",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Mood_Media_TZBB_petak-32.jpg",
+      "title": "Mood Media TZBB Petak 32",
+      "title_hr": "Mood Media TZBB Petak 32",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Mood_Media_TZBB_petak-81.jpg",
+      "title": "Mood Media TZBB Petak 81",
+      "title_hr": "Mood Media TZBB Petak 81",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Mood_Media_TZBB_subota-105.jpg",
+      "title": "Mood Media TZBB Subota 105",
+      "title_hr": "Mood Media TZBB Subota 105",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Mood_Media_TZBB_subota-112.jpg",
+      "title": "Mood Media TZBB Subota 112",
+      "title_hr": "Mood Media TZBB Subota 112",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Mood_Media_TZBB_subota-70.jpg",
+      "title": "Mood Media TZBB Subota 70",
+      "title_hr": "Mood Media TZBB Subota 70",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Photo-17.jpg",
+      "title": "Photo 17",
+      "title_hr": "Photo 17",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Photo-4.jpg",
+      "title": "Photo 4",
+      "title_hr": "Photo 4",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Photo-6.jpg",
+      "title": "Photo 6",
+      "title_hr": "Photo 6",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Polja_Ilače-10.JPG",
+      "title": "Polja Ilače 10",
+      "title_hr": "Polja Ilače 10",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Polja_Ilače-24.JPG",
+      "title": "Polja Ilače 24",
+      "title_hr": "Polja Ilače 24",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Povorka-15.jpg",
+      "title": "Povorka 15",
+      "title_hr": "Povorka 15",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Povorka-3.jpg",
+      "title": "Povorka 3",
+      "title_hr": "Povorka 3",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Povorka-88.jpg",
+      "title": "Povorka 88",
+      "title_hr": "Povorka 88",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Proljeće_Veliko_Trojstvo-22.jpg",
+      "title": "Proljeće Veliko Trojstvo 22",
+      "title_hr": "Proljeće Veliko Trojstvo 22",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Romska_kuća-31.JPG",
+      "title": "Romska Kuća 31",
+      "title_hr": "Romska Kuća 31",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Studijsko_ponedjeljak-44.jpg",
+      "title": "Studijsko Ponedjeljak 44",
+      "title_hr": "Studijsko Ponedjeljak 44",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Studijsko_utorak-51.jpg",
+      "title": "Studijsko Utorak 51",
+      "title_hr": "Studijsko Utorak 51",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Terezijana_2023_Carska_subota-135.JPG",
+      "title": "Terezijana 2023 Carska Subota 135",
+      "title_hr": "Terezijana 2023 Carska Subota 135",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Terezijana_2023_Carska_subota-21.JPG",
+      "title": "Terezijana 2023 Carska Subota 21",
+      "title_hr": "Terezijana 2023 Carska Subota 21",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Terezijaner, Nogogur, Alka-141.jpg",
+      "title": "Terezijaner Nogogur Alka 141",
+      "title_hr": "Terezijaner Nogogur Alka 141",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Ulični_svirač-5.jpg",
+      "title": "Ulični Svirač 5",
+      "title_hr": "Ulični Svirač 5",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_22.jpg",
+      "title": "Žetva Tomaš 22",
+      "title_hr": "Žetva Tomaš 22",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_27.jpg",
+      "title": "Žetva Tomaš 27",
+      "title_hr": "Žetva Tomaš 27",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_36.jpg",
+      "title": "Žetva Tomaš 36",
+      "title_hr": "Žetva Tomaš 36",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_45.jpg",
+      "title": "Žetva Tomaš 45",
+      "title_hr": "Žetva Tomaš 45",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_66.jpg",
+      "title": "Žetva Tomaš 66",
+      "title_hr": "Žetva Tomaš 66",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_67.jpg",
+      "title": "Žetva Tomaš 67",
+      "title_hr": "Žetva Tomaš 67",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_8.jpg",
+      "title": "Žetva Tomaš 8",
+      "title_hr": "Žetva Tomaš 8",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_84.jpg",
+      "title": "Žetva Tomaš 84",
+      "title_hr": "Žetva Tomaš 84",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/Žetva_Tomaš_85.jpg",
+      "title": "Žetva Tomaš 85",
+      "title_hr": "Žetva Tomaš 85",
+      "category": "people",
+      "aspect": "portrait"
+    },
+    {
+      "src": "images/People/ZHMKC_Vježba_2025-31.jpg",
+      "title": "ZHMKC Vježba 2025 31",
+      "title_hr": "ZHMKC Vježba 2025 31",
+      "category": "people",
+      "aspect": "portrait"
     }
   ]
 }
