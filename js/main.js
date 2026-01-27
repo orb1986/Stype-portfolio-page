@@ -88,35 +88,49 @@ function closeMobileMenu() {
 // =============================================
 function initLanguageToggle() {
     const langToggle = document.getElementById('langToggle');
-    if (!langToggle) return;
-
-    const langCurrent = langToggle.querySelector('.lang-current');
-    const langOther = langToggle.querySelector('.lang-other');
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
 
     currentLang = localStorage.getItem('portfolio-lang') || 'en';
 
     applyLanguage(currentLang);
-    updateLangButton(currentLang);
+    updateAllLangButtons(currentLang);
 
-    langToggle.addEventListener('click', () => {
+    // Desktop toggle
+    if (langToggle) {
+        langToggle.addEventListener('click', handleLangToggle);
+    }
+
+    // Mobile toggle
+    if (mobileLangToggle) {
+        mobileLangToggle.addEventListener('click', handleLangToggle);
+    }
+
+    function handleLangToggle() {
         currentLang = currentLang === 'en' ? 'hr' : 'en';
         localStorage.setItem('portfolio-lang', currentLang);
         applyLanguage(currentLang);
-        updateLangButton(currentLang);
+        updateAllLangButtons(currentLang);
         // Re-render gallery with new language
         if (allImages.length > 0) {
             renderGallery(allImages);
         }
-    });
+    }
 
-    function updateLangButton(lang) {
-        if (lang === 'en') {
-            langCurrent.textContent = 'EN';
-            langOther.textContent = 'HR';
-        } else {
-            langCurrent.textContent = 'HR';
-            langOther.textContent = 'EN';
-        }
+    function updateAllLangButtons(lang) {
+        const toggles = [langToggle, mobileLangToggle].filter(Boolean);
+        toggles.forEach(toggle => {
+            const langCurrent = toggle.querySelector('.lang-current');
+            const langOther = toggle.querySelector('.lang-other');
+            if (langCurrent && langOther) {
+                if (lang === 'en') {
+                    langCurrent.textContent = 'EN';
+                    langOther.textContent = 'HR';
+                } else {
+                    langCurrent.textContent = 'HR';
+                    langOther.textContent = 'EN';
+                }
+            }
+        });
     }
 }
 
@@ -258,27 +272,44 @@ function renderGallery(images, filter = 'all') {
     // Update mobile gallery slideshow
     updateMobileGallerySlideshow(filteredImages);
 
+    // Category translations
+    const categoryNames = {
+        en: {
+            food: 'Food',
+            events: 'Events',
+            products: 'Products',
+            interior: 'Interior'
+        },
+        hr: {
+            food: 'Hrana',
+            events: 'Događaji',
+            products: 'Proizvodi',
+            interior: 'Interijer'
+        }
+    };
+
     // Distribute images into 4 columns for masonry effect
     const columns = [[], [], [], []];
     filteredImages.forEach((img, index) => {
         columns[index % 4].push(img);
     });
 
-    // Build HTML
+    // Build HTML - show category on main page (filter=all), nothing otherwise
     let html = '';
     columns.forEach((columnImages) => {
         html += '<div class="masonry-column">';
         columnImages.forEach(img => {
             const title = currentLang === 'hr' && img.title_hr ? img.title_hr : img.title;
-            const aspectRatio = getAspectRatio(img.aspect);
+            const categoryLabel = filter === 'all' ? (categoryNames[currentLang][img.category] || img.category) : '';
 
             html += `
-                <div class="gallery-item" data-category="${img.category}" data-title="${title}" data-src="${img.src}" style="padding-bottom: ${aspectRatio};">
+                <div class="gallery-item" data-category="${img.category}" data-title="${title}" data-src="${img.src}">
                     <div class="gallery-image">
                         <img src="${img.src}" alt="${title}" loading="lazy" onerror="var p=this.parentElement.parentElement; p.querySelector('.gallery-image').innerHTML='<div class=\\'image-placeholder\\'><span>${title}</span></div>'; p.querySelector('.gallery-overlay').style.display='none';">
                     </div>
                     <div class="gallery-overlay">
                         <h3>${title}</h3>
+                        ${categoryLabel ? `<span class="category-label">${categoryLabel}</span>` : ''}
                     </div>
                 </div>
             `;
