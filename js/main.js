@@ -266,7 +266,7 @@ function renderGallery(images, filter = 'all') {
 
     // Build HTML
     let html = '';
-    columns.forEach((columnImages, colIndex) => {
+    columns.forEach((columnImages) => {
         html += '<div class="masonry-column">';
         columnImages.forEach(img => {
             const title = currentLang === 'hr' && img.title_hr ? img.title_hr : img.title;
@@ -302,6 +302,7 @@ function getAspectRatio(aspect) {
 function updateMobileGallerySlideshow(images) {
     const slideshow = document.getElementById('gallerySlideshow');
     const dotsContainer = document.getElementById('gallerySlideshowDots');
+    const lightbox = document.getElementById('lightbox');
 
     if (!slideshow || !dotsContainer) return;
 
@@ -310,11 +311,54 @@ function updateMobileGallerySlideshow(images) {
     dotsContainer.innerHTML = '';
 
     // Create slides
-    images.forEach(img => {
+    images.forEach((img, index) => {
         const slide = document.createElement('div');
         slide.className = 'slide';
         const title = currentLang === 'hr' && img.title_hr ? img.title_hr : img.title;
-        slide.innerHTML = `<img src="${img.src}" alt="${title}" loading="lazy">`;
+        slide.innerHTML = `<img src="${img.src}" alt="${title}" loading="lazy" data-index="${index}" data-src="${img.src}" data-title="${title}" data-category="${img.category}">`;
+
+        // Add click event to open in fullscreen lightbox
+        slide.addEventListener('click', () => {
+            if (!lightbox) return;
+
+            const lightboxTitle = lightbox.querySelector('.lightbox-title');
+            const lightboxCategory = lightbox.querySelector('.lightbox-category');
+            const lightboxImage = lightbox.querySelector('.lightbox-image');
+
+            if (lightboxTitle && lightboxCategory && lightboxImage) {
+                lightboxTitle.textContent = title;
+                lightboxCategory.textContent = img.category.charAt(0).toUpperCase() + img.category.slice(1);
+
+                lightboxImage.innerHTML = `
+                    <div class="lightbox-image-wrapper">
+                        <img src="${img.src}" alt="${title}">
+                    </div>
+                `;
+
+                const wrapper = lightboxImage.querySelector('.lightbox-image-wrapper');
+                const info = lightbox.querySelector('.lightbox-info');
+                if (wrapper && info) {
+                    wrapper.appendChild(info);
+                }
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // Auto-enter fullscreen on mobile
+                setTimeout(() => {
+                    if (lightbox.requestFullscreen) {
+                        lightbox.requestFullscreen();
+                    } else if (lightbox.webkitRequestFullscreen) {
+                        lightbox.webkitRequestFullscreen();
+                    } else if (lightbox.mozRequestFullScreen) {
+                        lightbox.mozRequestFullScreen();
+                    } else if (lightbox.msRequestFullscreen) {
+                        lightbox.msRequestFullscreen();
+                    }
+                }, 100);
+            }
+        });
+
         slideshow.appendChild(slide);
     });
 
@@ -337,6 +381,8 @@ function initMobileGallerySlideshow() {
 
     let currentSlide = 0;
     let autoplayInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Create dots
     slides.forEach((_, index) => {
@@ -378,6 +424,33 @@ function initMobileGallerySlideshow() {
         clearInterval(autoplayInterval);
     }
 
+    // Touch gesture support for swipe left/right
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+    });
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoplay();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance for a swipe
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swiped left, go to next slide
+                nextSlide();
+            } else {
+                // Swiped right, go to previous slide
+                prevSlide();
+            }
+        }
+    }
+
     // Pause on hover
     track.addEventListener('mouseenter', stopAutoplay);
     track.addEventListener('mouseleave', startAutoplay);
@@ -408,6 +481,7 @@ function initMobileGallerySlideshow() {
 // =============================================
 function initGalleryFilter() {
     const navLinks = document.querySelectorAll('.nav-link[data-filter]');
+    const logo = document.querySelector('.logo');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -432,183 +506,386 @@ function initGalleryFilter() {
             closeMobileMenu();
         });
     });
+
+    // Logo click shows all galleries
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Remove active state from all nav links
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Show all galleries
+            renderGallery(allImages, 'all');
+
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Re-init lightbox for new items
+            initLightbox();
+
+            closeMobileMenu();
+        });
+    }
 }
 
 // =============================================
 // Lightbox
 // =============================================
+// Store lightbox state globally to prevent re-initialization issues
+let lightboxState = {
+    currentItemIndex: 0,
+    isFullscreen: false,
+    initialized: false,
+    zoomLevel: 1,
+    isDragging: false,
+    startX: 0,
+    startY: 0,
+    translateX: 0,
+    translateY: 0,
+    touchStartX: 0,
+    touchStartY: 0
+};
+
+// Global function to update image transform for zoom
+function updateImageTransform(img) {
+    if (!img) return;
+
+    const cursor = lightboxState.zoomLevel > 1 ? 'grab' : 'zoom-in';
+    img.style.cursor = cursor;
+    img.style.transform = `scale(${lightboxState.zoomLevel}) translate(${lightboxState.translateX / lightboxState.zoomLevel}px, ${lightboxState.translateY / lightboxState.zoomLevel}px)`;
+    img.style.transition = lightboxState.isDragging ? 'none' : 'transform 0.2s ease';
+}
+
+// Global function to setup zoom controls on an image
+function setupZoomControls(img) {
+    // Mouse wheel zoom
+    img.addEventListener('wheel', (e) => {
+        if (!lightboxState.isFullscreen) return;
+        e.preventDefault();
+
+        const delta = e.deltaY > 0 ? -0.1 : 0.1;
+        lightboxState.zoomLevel = Math.min(Math.max(1, lightboxState.zoomLevel + delta), 4);
+
+        updateImageTransform(img);
+    });
+
+    // Click to toggle zoom
+    img.addEventListener('click', (e) => {
+        if (!lightboxState.isFullscreen) return;
+        e.stopPropagation();
+
+        if (lightboxState.zoomLevel === 1) {
+            lightboxState.zoomLevel = 2;
+        } else {
+            lightboxState.zoomLevel = 1;
+            lightboxState.translateX = 0;
+            lightboxState.translateY = 0;
+        }
+
+        updateImageTransform(img);
+    });
+
+    // Drag to pan when zoomed
+    img.addEventListener('mousedown', (e) => {
+        if (!lightboxState.isFullscreen || lightboxState.zoomLevel === 1) return;
+        e.preventDefault();
+
+        lightboxState.isDragging = true;
+        lightboxState.startX = e.clientX - lightboxState.translateX;
+        lightboxState.startY = e.clientY - lightboxState.translateY;
+        img.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!lightboxState.isDragging) return;
+
+        lightboxState.translateX = e.clientX - lightboxState.startX;
+        lightboxState.translateY = e.clientY - lightboxState.startY;
+
+        updateImageTransform(img);
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (lightboxState.isDragging) {
+            lightboxState.isDragging = false;
+            if (img) {
+                img.style.cursor = lightboxState.zoomLevel > 1 ? 'grab' : 'zoom-in';
+            }
+        }
+    });
+
+    // Touch pinch zoom for mobile
+    let initialDistance = 0;
+    let initialZoom = 1;
+
+    img.addEventListener('touchstart', (e) => {
+        if (!lightboxState.isFullscreen) return;
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            initialDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            initialZoom = lightboxState.zoomLevel;
+        }
+    });
+
+    img.addEventListener('touchmove', (e) => {
+        if (!lightboxState.isFullscreen) return;
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            const currentDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            const scale = currentDistance / initialDistance;
+            lightboxState.zoomLevel = Math.min(Math.max(1, initialZoom * scale), 4);
+            updateImageTransform(img);
+        }
+    });
+}
+
+// Global toggleFullscreen function
+function toggleFullscreen() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    if (!document.fullscreenElement &&
+        !document.webkitFullscreenElement &&
+        !document.mozFullScreenElement &&
+        !document.msFullscreenElement) {
+        // Enter fullscreen
+        if (lightbox.requestFullscreen) {
+            lightbox.requestFullscreen();
+        } else if (lightbox.webkitRequestFullscreen) {
+            lightbox.webkitRequestFullscreen();
+        } else if (lightbox.mozRequestFullScreen) {
+            lightbox.mozRequestFullScreen();
+        } else if (lightbox.msRequestFullscreen) {
+            lightbox.msRequestFullscreen();
+        }
+    } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
+
+// Global updateFullscreenButton function
+function updateFullscreenButton() {
+    const currentFullscreen = document.getElementById('lightboxFullscreen');
+    if (!currentFullscreen) return;
+
+    const expandIcon = currentFullscreen.querySelector('.fullscreen-icon-expand');
+    const collapseIcon = currentFullscreen.querySelector('.fullscreen-icon-collapse');
+
+    lightboxState.isFullscreen = !!(document.fullscreenElement ||
+                     document.webkitFullscreenElement ||
+                     document.mozFullScreenElement ||
+                     document.msFullscreenElement);
+
+    if (lightboxState.isFullscreen) {
+        if (expandIcon) expandIcon.style.display = 'none';
+        if (collapseIcon) collapseIcon.style.display = 'block';
+    } else {
+        if (expandIcon) expandIcon.style.display = 'block';
+        if (collapseIcon) collapseIcon.style.display = 'none';
+    }
+}
+
+// Global closeLightbox function
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    // Exit fullscreen if active
+    if (lightboxState.isFullscreen) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Global displayItem function so it can be called from anywhere
+function displayLightboxItem(index) {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    if (!lightboxImage) return;
+
+    const galleryItemsArray = Array.from(document.querySelectorAll('.gallery-item'));
+    if (galleryItemsArray.length === 0) return;
+
+    lightboxState.currentItemIndex = (index + galleryItemsArray.length) % galleryItemsArray.length;
+    const item = galleryItemsArray[lightboxState.currentItemIndex];
+
+    const title = item.getAttribute('data-title') || '';
+    const category = item.getAttribute('data-category') || '';
+    const src = item.getAttribute('data-src') || '';
+
+    // Reset zoom and position when changing images
+    lightboxState.zoomLevel = 1;
+    lightboxState.translateX = 0;
+    lightboxState.translateY = 0;
+
+    // Show image in lightbox with wrapper and info (recreate info each time)
+    if (src) {
+        lightboxImage.innerHTML = `
+            <div class="lightbox-image-wrapper">
+                <img src="${src}" alt="${title}" style="transform: scale(1) translate(0, 0); cursor: zoom-in;">
+                <div class="lightbox-info">
+                    <h3 class="lightbox-title">${title}</h3>
+                    <p class="lightbox-category">${category.charAt(0).toUpperCase() + category.slice(1)}</p>
+                </div>
+            </div>
+        `;
+
+        // Add zoom functionality to the image
+        const wrapper = lightboxImage.querySelector('.lightbox-image-wrapper');
+        const img = wrapper ? wrapper.querySelector('img') : null;
+        if (img) {
+            setupZoomControls(img);
+        }
+    }
+}
+
 function initLightbox() {
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
 
-    const lightboxClose = lightbox.querySelector('.lightbox-close');
-    const lightboxFullscreen = document.getElementById('lightboxFullscreen');
-    const lightboxPrev = lightbox.querySelector('.lightbox-nav-prev');
-    const lightboxNext = lightbox.querySelector('.lightbox-nav-next');
-    const lightboxTitle = lightbox.querySelector('.lightbox-title');
-    const lightboxCategory = lightbox.querySelector('.lightbox-category');
-    const lightboxImage = lightbox.querySelector('.lightbox-image');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    // Use event delegation for gallery items - attach to parent container
+    const galleryGrid = document.getElementById('galleryGrid');
+    if (galleryGrid && !galleryGrid.hasAttribute('data-lightbox-init')) {
+        galleryGrid.setAttribute('data-lightbox-init', 'true');
+        galleryGrid.addEventListener('click', (e) => {
+            const galleryItem = e.target.closest('.gallery-item');
+            if (!galleryItem) return;
 
-    let currentItemIndex = 0;
-    let galleryItemsArray = Array.from(galleryItems);
-    let isFullscreen = false;
+            // Get current array of visible items when opening lightbox
+            const currentGalleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+            lightboxState.currentItemIndex = currentGalleryItems.indexOf(galleryItem);
 
-    function displayItem(index) {
-        if (galleryItemsArray.length === 0) return;
-
-        currentItemIndex = (index + galleryItemsArray.length) % galleryItemsArray.length;
-        const item = galleryItemsArray[currentItemIndex];
-
-        const title = item.getAttribute('data-title') || '';
-        const category = item.getAttribute('data-category') || '';
-        const src = item.getAttribute('data-src') || '';
-
-        lightboxTitle.textContent = title;
-        lightboxCategory.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-
-        // Show image in lightbox with wrapper for proper info positioning
-        if (src) {
-            lightboxImage.innerHTML = `
-                <div class="lightbox-image-wrapper">
-                    <img src="${src}" alt="${title}">
-                </div>
-            `;
-
-            // Move the lightbox-info inside the wrapper so it aligns with image width
-            const wrapper = lightboxImage.querySelector('.lightbox-image-wrapper');
-            const info = document.querySelector('.lightbox-info');
-            if (wrapper && info) {
-                wrapper.appendChild(info);
-            }
-        }
-    }
-
-    galleryItems.forEach((item) => {
-        item.addEventListener('click', () => {
-            // Reset array of visible items when opening lightbox
-            galleryItemsArray = Array.from(document.querySelectorAll('.gallery-item'));
-            currentItemIndex = galleryItemsArray.indexOf(item);
-
-            displayItem(currentItemIndex);
+            displayLightboxItem(lightboxState.currentItemIndex);
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-        });
-    });
 
-    // Navigation button listeners
-    if (lightboxPrev) {
-        lightboxPrev.addEventListener('click', (e) => {
-            e.stopPropagation();
-            displayItem(currentItemIndex - 1);
-        });
-    }
-
-    if (lightboxNext) {
-        lightboxNext.addEventListener('click', (e) => {
-            e.stopPropagation();
-            displayItem(currentItemIndex + 1);
+            // Auto-enter fullscreen on mobile devices
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    toggleFullscreen();
+                }, 100);
+            }
         });
     }
 
-    // Remove old listeners and add new ones
-    const newClose = lightboxClose.cloneNode(true);
-    lightboxClose.parentNode.replaceChild(newClose, lightboxClose);
+    // Setup lightbox controls only once
+    if (!lightboxState.initialized) {
+        // Navigation buttons - use onclick to replace any previous handler
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        const fullscreenBtn = document.getElementById('lightboxFullscreen');
 
-    newClose.addEventListener('click', closeLightbox);
-
-    // Fullscreen toggle
-    if (lightboxFullscreen) {
-        lightboxFullscreen.addEventListener('click', toggleFullscreen);
-    }
-
-    lightbox.onclick = (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
+        if (prevBtn) {
+            prevBtn.onclick = (e) => {
+                e.stopPropagation();
+                displayLightboxItem(lightboxState.currentItemIndex - 1);
+            };
         }
-    };
 
-    document.onkeydown = (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        } else if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
-            displayItem(currentItemIndex - 1);
-        } else if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
-            displayItem(currentItemIndex + 1);
-        } else if ((e.key === 'f' || e.key === 'F') && lightbox.classList.contains('active')) {
-            toggleFullscreen();
+        if (nextBtn) {
+            nextBtn.onclick = (e) => {
+                e.stopPropagation();
+                displayLightboxItem(lightboxState.currentItemIndex + 1);
+            };
         }
-    };
 
-    // Listen for fullscreen changes
-    document.addEventListener('fullscreenchange', updateFullscreenButton);
-    document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
-    document.addEventListener('mozfullscreenchange', updateFullscreenButton);
-    document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+        if (closeBtn) {
+            closeBtn.onclick = closeLightbox;
+        }
 
-    function toggleFullscreen() {
-        if (!document.fullscreenElement &&
-            !document.webkitFullscreenElement &&
-            !document.mozFullScreenElement &&
-            !document.msFullscreenElement) {
-            // Enter fullscreen
-            if (lightbox.requestFullscreen) {
-                lightbox.requestFullscreen();
-            } else if (lightbox.webkitRequestFullscreen) {
-                lightbox.webkitRequestFullscreen();
-            } else if (lightbox.mozRequestFullScreen) {
-                lightbox.mozRequestFullScreen();
-            } else if (lightbox.msRequestFullscreen) {
-                lightbox.msRequestFullscreen();
+        if (fullscreenBtn) {
+            fullscreenBtn.onclick = toggleFullscreen;
+        }
+
+        // Setup lightbox background click to close
+        lightbox.onclick = (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
             }
-        } else {
-            // Exit fullscreen
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
+        };
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                displayLightboxItem(lightboxState.currentItemIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                displayLightboxItem(lightboxState.currentItemIndex + 1);
+            } else if (e.key === 'f' || e.key === 'F') {
+                toggleFullscreen();
             }
-        }
-    }
+        });
 
-    function updateFullscreenButton() {
-        const expandIcon = lightboxFullscreen.querySelector('.fullscreen-icon-expand');
-        const collapseIcon = lightboxFullscreen.querySelector('.fullscreen-icon-collapse');
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', updateFullscreenButton);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+        document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+        document.addEventListener('MSFullscreenChange', updateFullscreenButton);
 
-        isFullscreen = !!(document.fullscreenElement ||
-                         document.webkitFullscreenElement ||
-                         document.mozFullScreenElement ||
-                         document.msFullscreenElement);
-
-        if (isFullscreen) {
-            expandIcon.style.display = 'none';
-            collapseIcon.style.display = 'block';
-        } else {
-            expandIcon.style.display = 'block';
-            collapseIcon.style.display = 'none';
-        }
-    }
-
-    function closeLightbox() {
-        // Exit fullscreen if active
-        if (isFullscreen) {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
+        // Add swipe gesture navigation for lightbox (mobile)
+        lightbox.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                lightboxState.touchStartX = e.touches[0].clientX;
+                lightboxState.touchStartY = e.touches[0].clientY;
             }
-        }
+        }, { passive: true });
 
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+        lightbox.addEventListener('touchend', (e) => {
+            if (e.changedTouches.length === 1 && lightboxState.zoomLevel === 1) {
+                const touchEndX = e.changedTouches[0].clientX;
+                const touchEndY = e.changedTouches[0].clientY;
+                const diffX = lightboxState.touchStartX - touchEndX;
+                const diffY = lightboxState.touchStartY - touchEndY;
+
+                // Only trigger swipe if horizontal movement is greater than vertical
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swiped left - next image
+                        displayLightboxItem(lightboxState.currentItemIndex + 1);
+                    } else {
+                        // Swiped right - previous image
+                        displayLightboxItem(lightboxState.currentItemIndex - 1);
+                    }
+                }
+            }
+        }, { passive: true });
+
+        lightboxState.initialized = true;
     }
 }
 
