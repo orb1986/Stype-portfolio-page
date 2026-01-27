@@ -275,7 +275,7 @@ function renderGallery(images, filter = 'all') {
             html += `
                 <div class="gallery-item" data-category="${img.category}" data-title="${title}" data-src="${img.src}" style="padding-bottom: ${aspectRatio};">
                     <div class="gallery-image">
-                        <img src="${img.src}" alt="${title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'><span>${title}</span></div>'; this.parentElement.parentElement.querySelector('.gallery-overlay').style.display='none';">
+                        <img src="${img.src}" alt="${title}" loading="lazy" onerror="var p=this.parentElement.parentElement; p.querySelector('.gallery-image').innerHTML='<div class=\\'image-placeholder\\'><span>${title}</span></div>'; p.querySelector('.gallery-overlay').style.display='none';">
                     </div>
                     <div class="gallery-overlay">
                         <h3>${title}</h3>
