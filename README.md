@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern, minimalist portfolio website with a clean white design inspired by professional photography portfolios like [mirjageh.com](https://www.mirjageh.com/). Built with vanilla HTML, CSS, and JavaScript.
+A modern, minimalist portfolio website with a clean white design. Built with vanilla HTML, CSS, and JavaScript.
 
 ## Features
 
