@@ -896,7 +896,7 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const name = form.querySelector('#name').value;
@@ -904,16 +904,45 @@ function initContactForm() {
         const message = form.querySelector('#message').value;
 
         if (!name || !email || !message) {
-            alert('Please fill in all fields.');
+            const errorMessage = currentLang === 'en'
+                ? 'Please fill in all fields.'
+                : 'Molimo ispunite sva polja.';
+            alert(errorMessage);
             return;
         }
 
-        const successMessage = currentLang === 'en'
-            ? 'Thank you for your message! I will get back to you soon.'
-            : 'Hvala na poruci! Javit ću vam se uskoro.';
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = currentLang === 'en' ? 'Sending...' : 'Slanje...';
+        submitBtn.disabled = true;
 
-        alert(successMessage);
-        form.reset();
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const successMessage = currentLang === 'en'
+                    ? 'Thank you for your message! I will get back to you soon.'
+                    : 'Hvala na poruci! Javit ću vam se uskoro.';
+                alert(successMessage);
+                form.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            const errorMessage = currentLang === 'en'
+                ? 'Oops! Something went wrong. Please try again or email me directly.'
+                : 'Ups! Nešto je pošlo po zlu. Pokušajte ponovo ili mi pošaljite email direktno.';
+            alert(errorMessage);
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
