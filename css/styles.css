@@ -17,6 +17,7 @@
     --transition-slow: 0.5s ease;
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.12);
+    --header-height: 160px;
 }
 
 *, *::before, *::after {
@@ -80,7 +81,7 @@ button {
     right: 0;
     z-index: 1000;
     background-color: var(--color-bg);
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     transition: box-shadow var(--transition-medium);
 }
 
@@ -111,7 +112,7 @@ button {
 }
 
 .logo-image {
-    height: 75px;
+    height: 90px;
     width: auto;
     display: block;
 }
@@ -271,7 +272,7 @@ button {
    Main Gallery - Masonry Layout
    ============================================= */
 .gallery-main {
-    padding-top: 100px;
+    padding-top: var(--header-height);
     padding-bottom: 2rem;
 }
 
